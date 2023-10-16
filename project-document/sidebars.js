@@ -22,6 +22,9 @@ const sidebars = {
     }, {
       type: "doc",
       id: "domain-model/Overview"
+    }, {
+      type: "doc",
+      id: "er-diagram/er-diagram"
     }
   ],
 };

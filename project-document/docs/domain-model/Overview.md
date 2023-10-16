@@ -40,7 +40,7 @@ classDiagram
     }
 
     class Group {
-        Int id
+        String id
         String name
         List [UserGroup]
         List [Container]
@@ -50,6 +50,7 @@ classDiagram
     class Container {
         ContainerId ContainerId
         List [Food]
+        String name
     }
 
     class ContainerId {
@@ -58,10 +59,22 @@ classDiagram
 
     class Food {
         String id
-        String Unit
-        Int Quantity
-        Date Expire
+        String name
+        Unit Unit
+        Quantity Quantity
+        Expire Expire
+    }
 
+    class Unit {
+        String Unit
+    }
+
+    class Quantity {
+        Int Quantity
+    }
+
+    class Expire {
+        Date Expire
     }
 
     User *-- UserId : Composition
@@ -72,6 +85,10 @@ classDiagram
 
     Container *-- ContainerId : Composition
     Container *-- Food : Composition
+
+    Food *-- Unit : Composition
+    Food *-- Quantity : Composition
+    Food *-- Expire : Composition
 
 ```
 
