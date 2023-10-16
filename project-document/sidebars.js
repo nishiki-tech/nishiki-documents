@@ -18,7 +18,10 @@ const sidebars = {
     {
       type: "doc",
       id: "intro",
-      "label": "Intro"
+      "label": "Intro",
+    }, {
+      type: "doc",
+      id: "domain-model/Overview"
     }
   ],
 };
