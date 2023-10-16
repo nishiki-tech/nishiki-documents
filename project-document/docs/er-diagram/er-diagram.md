@@ -1,7 +1,6 @@
 # ER Diagram
 
 ```mermaid
-
 erDiagram
 
 User {

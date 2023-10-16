@@ -21,7 +21,7 @@ const sidebars = {
       "label": "Intro",
     }, {
       type: "doc",
-      id: "domain-model/Overview"
+      id: "domain-model/domain-model"
     }, {
       type: "doc",
       id: "er-diagram/er-diagram"
