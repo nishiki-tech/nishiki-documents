@@ -9,16 +9,38 @@ tags:
   - name: user
     description: user of Nishiki system
 paths:
-  /users:
+  /users/:userId:
     get:
       tags:
         - user
       responses:
         '200':
+          description: get user information
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/User"
+    put:
+      tags:
+        - user
+      responses:
+        "202":
+          description: update user's information
+        "401":
+          description: try to change other user's information
+  /users/:userId/containers:
+    get:
+      tags:
+        - user
+      responses:
+        "200":
+          description: get user's containers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  - $ref: "#/components/schemas/Container"
 components:
   schemas:
     User:
