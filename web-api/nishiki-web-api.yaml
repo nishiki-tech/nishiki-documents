@@ -1,0 +1,102 @@
+openapi: "3.0.3"
+info:
+  title: Nishiki Web API
+  description: Nishiki
+  version: 1.0.0
+servers:
+  - url: www
+tags:
+  - name: user
+    description: user of Nishiki system
+paths:
+  /users:
+    get:
+      tags:
+        - user
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: false
+          example: 1234567890
+        name:
+          type: string
+          nullable: false
+          example: John
+        groups:
+          type: array
+          nullable: false
+          example:
+            - groupId
+          items:
+            type: string
+    Container:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+          example: 1234567890
+        name:
+          type: string
+          nullable: true
+          example: container1
+        group:
+          type: string
+          nullable: false
+          example: groupId
+        foods:
+          type: array
+          nullable: false
+          items:
+            $ref: "#/components/schemas/Food"
+    Group:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: false
+          example: 42
+        users:
+          type: array
+          nullable: false
+          example:
+            - 1212
+            - 2323
+            - 3434
+          items:
+            type: string
+    Food:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 42
+          nullable: false
+        name:
+          type: string
+          example: arugula
+          nullable: false
+        quantity:
+          type: integer
+          format: int64
+          nullable: true
+          example: 1
+        unit:
+          type: string
+          nullable: true
+          example: kg
+        expire:
+          type: string
+          nullable: true
+          format: date-time
+          example: 1970-01-01T00:00:00.000Z
