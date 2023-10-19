@@ -25,7 +25,7 @@ paths:
         - user
       requestBody:
         content:
-          "application/json":
+          application/json:
             schema:
               type: object
               properties:
@@ -50,6 +50,121 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Container"
+  /containers:
+    post:
+      tags:
+        - container
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                groupId:
+                  type: string
+                  nullable: false
+                  example: groupId
+                name:
+                  type: string
+                  nullable: true
+                  example: my-container
+      responses:
+        "201":
+          description: creation complete
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  containerId:
+                    type: string
+                    description: generated container ID
+                    example: containerId
+  /containers/:containerId:
+    get:
+      tags:
+        - container
+      responses:
+        "200":
+          description: get a container
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Container"
+  /containers/:containerId/foods:
+    post:
+      tags:
+        - container
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  nullable: false
+                  example: bouillon
+                unit:
+                  type: string
+                  nullable: true
+                  example: l
+                quantity:
+                  type: integer
+                  nullable: true
+                  example: 1
+                expiry:
+                  type: string
+                  format: date-time
+                  nullable: true
+                  example: 1970-01-01T00:00:00.000Z
+      responses:
+        "201":
+          description: adding the food complete
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  foodId:
+                    type: string
+                    example: foodId
+  /containers/:containerId/foods/:foodId:
+    put:
+      tags:
+        - container
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  nullable: false
+                  example: bouillon
+                unit:
+                  type: string
+                  nullable: true
+                  example: l
+                quantity:
+                  type: integer
+                  nullable: true
+                  example: 1
+                expiry:
+                  type: string
+                  format: date-time
+                  nullable: true
+                  example: 1970-01-01T00:00:00.000Z
+      responses:
+        "202":
+          description: update complete
+    delete:
+      tags:
+        - container
+      responses:
+        "202":
+          description: deletion complete
 components:
   schemas:
     User:
@@ -75,11 +190,11 @@ components:
       properties:
         id:
           type: string
-          nullable: true
+          nullable: false
           example: 1234567890
         name:
           type: string
-          nullable: true
+          nullable: false
           example: container1
         group:
           type: string
@@ -126,7 +241,7 @@ components:
           type: string
           nullable: true
           example: kg
-        expire:
+        expiry:
           type: string
           nullable: true
           format: date-time
