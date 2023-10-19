@@ -165,6 +165,57 @@ paths:
       responses:
         "202":
           description: deletion complete
+  /groups:
+    post:
+      tags:
+        - group
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                groupName:
+                  type: string
+                  nullable: true
+                  example: group1
+      responses:
+        "201":
+          description: generated group ID
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  groupId:
+                    type: string
+                    example: group1
+  /groups/:groupId:
+    get:
+      tags:
+        - group
+      responses:
+        "200":
+          description: get a group information
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Group"
+  /groups/:groupId/users/:userId:
+    put:
+      tags:
+        - group
+      description: add the target user ID in the path parameter
+      responses:
+        "202":
+          description: add a user to the group
+    delete:
+      tags:
+        - group
+      description: add the target user ID in the path parameter
+      responses:
+        "202":
+          description: deletion complete
 components:
   schemas:
     User:
