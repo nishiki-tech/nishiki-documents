@@ -11,7 +11,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://genesis-tech-tribe.github.io', // TODO: after deciding where the host location is, write it.
+  url: 'https://genesis-tech-tribe.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/nishiki-document',
