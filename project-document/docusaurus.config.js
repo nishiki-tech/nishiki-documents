@@ -14,12 +14,12 @@ const config = {
   url: 'https://genesis-tech-tribe.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/nishiki-document',
+  baseUrl: '/nishiki-documents',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'genesis-tech-tribe', // Usually your GitHub org/user name.
-  projectName: 'nishiki-document', // Usually your repo name.
+  projectName: 'nishiki-documents', // Usually your repo name.
   deploymentBranch: 'gh-pages', // The branch of your docs repo that you are publishing to GitHub pages.
   trailingSlash : false,
 
