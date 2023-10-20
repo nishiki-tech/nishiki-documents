@@ -11,15 +11,17 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-test-site.com', // TODO: after deciding where the host location is, write it.
+  url: 'https://genesis-tech-tribe.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/nishiki-document',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'genesis-tech-tribe', // Usually your GitHub org/user name.
-  projectName: 'Nishiki', // Usually your repo name.
+  projectName: 'nishiki-document', // Usually your repo name.
+  deploymentBranch: 'gh-pages', // The branch of your docs repo that you are publishing to GitHub pages.
+  trailingSlash : false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
