@@ -9,10 +9,17 @@ tags:
   - name: user
     description: user of Nishiki system
 paths:
-  /users/:userId:
+  /users/{:userId}:
     get:
       tags:
         - user
+      parameters:
+        - name: userId
+          in: path
+          description: ID of user
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: get user information
@@ -23,7 +30,15 @@ paths:
     put:
       tags:
         - user
+      parameters:
+        - name: userId
+          in: path
+          description: ID of user
+          required: true
+          schema:
+            type: string
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -37,10 +52,17 @@ paths:
           description: update user's information
         "401":
           description: try to change other user's information
-  /users/:userId/containers:
+  /users/{:userId}/containers:
     get:
       tags:
         - user
+      parameters:
+        - name: userId
+          in: path
+          description: ID of user
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: get user's containers
@@ -55,6 +77,7 @@ paths:
       tags:
         - container
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -80,10 +103,17 @@ paths:
                     type: string
                     description: generated container ID
                     example: containerId
-  /containers/:containerId:
+  /containers/{:containerId}:
     get:
       tags:
         - container
+      parameters:
+        - name: containerId
+          in: path
+          description: ID of container
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: get a container
@@ -91,11 +121,18 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Container"
-  /containers/:containerId/foods:
+  /containers/{:containerId}/foods:
     post:
       tags:
         - container
+      parameters:
+        - name: containerId
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -129,11 +166,25 @@ paths:
                   foodId:
                     type: string
                     example: foodId
-  /containers/:containerId/foods/:foodId:
+  /containers/{:containerId}/foods/{:foodId}:
     put:
       tags:
         - container
+      parameters:
+        - name: containerId
+          in: path
+          description: ID of container
+          required: true
+          schema:
+            type: string
+        - name: foodId
+          in: path
+          description: ID of food
+          required: true
+          schema:
+            type: string
       requestBody:
+        required: true
         content:
           application/json:
             schema:
@@ -162,6 +213,19 @@ paths:
     delete:
       tags:
         - container
+      parameters:
+        - name: containerId
+          in: path
+          description: ID of container
+          required: true
+          schema:
+            type: string
+        - name: foodId
+          in: path
+          description: ID of food
+          required: true
+          schema:
+            type: string
       responses:
         "202":
           description: deletion complete
@@ -190,10 +254,17 @@ paths:
                   groupId:
                     type: string
                     example: group1
-  /groups/:groupId:
+  /groups/{:groupId}:
     get:
       tags:
         - group
+      parameters:
+        - name: groupId
+          in: path
+          description: ID of group
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: get a group information
@@ -201,10 +272,23 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Group"
-  /groups/:groupId/users/:userId:
+  /groups/{:groupId}/users/{:userId}:
     put:
       tags:
         - group
+      parameters:
+        - name: groupId
+          in: path
+          description: ID of group
+          required: true
+          schema:
+            type: string
+        - name: userId
+          in: path
+          description: ID of user
+          required: true
+          schema:
+            type: string
       description: add the target user ID in the path parameter
       responses:
         "202":
@@ -212,6 +296,19 @@ paths:
     delete:
       tags:
         - group
+      parameters:
+        - name: groupId
+          in: path
+          description: ID of group
+          required: true
+          schema:
+            type: string
+        - name: userId
+          in: path
+          description: ID of user
+          required: true
+          schema:
+            type: string
       description: add the target user ID in the path parameter
       responses:
         "202":
