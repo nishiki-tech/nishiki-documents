@@ -9,7 +9,7 @@ tags:
   - name: user
     description: user of Nishiki system
 paths:
-  /users/{:userId}:
+  /users/{userId}:
     get:
       tags:
         - user
@@ -52,7 +52,7 @@ paths:
           description: update user's information
         "401":
           description: try to change other user's information
-  /users/{:userId}/containers:
+  /users/{userId}/containers:
     get:
       tags:
         - user
@@ -103,7 +103,7 @@ paths:
                     type: string
                     description: generated container ID
                     example: containerId
-  /containers/{:containerId}:
+  /containers/{containerId}:
     get:
       tags:
         - container
@@ -121,7 +121,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Container"
-  /containers/{:containerId}/foods:
+  /containers/{containerId}/foods:
     post:
       tags:
         - container
@@ -166,7 +166,7 @@ paths:
                   foodId:
                     type: string
                     example: foodId
-  /containers/{:containerId}/foods/{:foodId}:
+  /containers/{containerId}/foods/{foodId}:
     put:
       tags:
         - container
@@ -254,7 +254,7 @@ paths:
                   groupId:
                     type: string
                     example: group1
-  /groups/{:groupId}:
+  /groups/{groupId}:
     get:
       tags:
         - group
@@ -272,7 +272,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Group"
-  /groups/{:groupId}/users/{:userId}:
+  /groups/{groupId}/users/{userId}:
     put:
       tags:
         - group
