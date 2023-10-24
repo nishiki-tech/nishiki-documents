@@ -18,10 +18,26 @@ const sidebars = {
     {
       type: "doc",
       id: "intro",
-      "label": "Intro",
+      label: "Intro",
     }, {
-      type: "doc",
-      id: "domain-model/domain-model"
+      type: "category",
+      label: "Domain Models",
+      items: [
+        {
+          type: "doc",
+          id: "domain-model/domain-model"
+        }, {
+          type: "category",
+          label: "User Context",
+          items: [
+            {
+              type: "doc",
+              id: "domain-model/user-context/user",
+              label: "User Context"
+            }
+          ]
+        }
+      ]
     }, {
       type: "doc",
       id: "er-diagram/er-diagram"
