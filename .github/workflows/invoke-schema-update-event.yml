@@ -1,0 +1,31 @@
+name: Invoke Dispatch
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'web-api/**'
+
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: Generate a token
+        id: generate_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_SECRET }}
+          owner: ${{ github.repository_owner }}
+
+      - name: send dispatch to nishiki-backend
+        run: |
+            curl -X POST -H "Authorization: token ${{ steps.generate_token.outputs.token }}" -H "Accept: application/vnd.github.everest-preview+json" -d '{"event_type": "update-schema"}' -i  https://api.github.com/repos/genesis-tech-tribe/nishiki-backend/dispatches
+
+      - name: send dispatch to nishiki-frontend
+        run: |
+            curl -X POST -H "Authorization: token ${{ steps.generate_token.outputs.token }}" -H "Accept: application/vnd.github.everest-preview+json" -d '{"event_type": "update-schema"}' -i  https://api.github.com/repos/genesis-tech-tribe/nishiki-frontend/dispatches
