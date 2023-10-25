@@ -18,7 +18,7 @@ const sidebars = {
     {
       type: "doc",
       id: "intro",
-      "label": "Intro",
+      label: "Intro",
     }, {
       type: "category",
       label: "Domain Models",
@@ -26,6 +26,16 @@ const sidebars = {
         {
           type: "doc",
           id: "domain-model/domain-model",
+        }, {
+          type: "category",
+          label: "User Context",
+          items: [
+            {
+              type: "doc",
+              id: "domain-model/user-context/user",
+              label: "User Context"
+            }
+          ]
         }, {
           type: "category",
           label: "Group Context",

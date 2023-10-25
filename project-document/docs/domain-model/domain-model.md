@@ -91,13 +91,3 @@ classDiagram
     Food *-- Expire : Composition
 
 ```
-
-## User ID
-
-Identifier
-
-The ID is created by Cognito User Pool.
-
-## User
-
-Entity
