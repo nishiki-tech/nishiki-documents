@@ -20,8 +20,32 @@ const sidebars = {
       id: "intro",
       "label": "Intro",
     }, {
-      type: "doc",
-      id: "domain-model/domain-model"
+      type: "category",
+      label: "Domain Models",
+      items: [
+        {
+          type: "doc",
+          id: "domain-model/domain-model",
+        }, {
+          type: "category",
+          label: "Group Context",
+          items: [
+            {
+              type: "category",
+              label: "Container Aggregate",
+              items: [
+                {
+                  type: "doc",
+                  label: "Food",
+                  id: "domain-model/group-context/food"
+                }
+              ]
+              // id: "domain-model/group-context",
+
+            }
+          ]
+        }
+      ]
     }, {
       type: "doc",
       id: "er-diagram/er-diagram"
