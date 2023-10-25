@@ -50,8 +50,6 @@ const sidebars = {
                   id: "domain-model/group-context/food"
                 }
               ]
-              // id: "domain-model/group-context",
-
             }
           ]
         }
