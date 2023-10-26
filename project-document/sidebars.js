@@ -25,7 +25,7 @@ const sidebars = {
       items: [
         {
           type: "doc",
-          id: "domain-model/domain-model"
+          id: "domain-model/domain-model",
         }, {
           type: "category",
           label: "User Context",
@@ -34,6 +34,22 @@ const sidebars = {
               type: "doc",
               id: "domain-model/user-context/user",
               label: "User Context"
+            }
+          ]
+        }, {
+          type: "category",
+          label: "Group Context",
+          items: [
+            {
+              type: "category",
+              label: "Container Aggregate",
+              items: [
+                {
+                  type: "doc",
+                  label: "Food",
+                  id: "domain-model/group-context/food"
+                }
+              ]
             }
           ]
         }
