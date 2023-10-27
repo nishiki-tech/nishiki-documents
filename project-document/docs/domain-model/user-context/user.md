@@ -14,5 +14,5 @@ The user is the user of Nishiki.
 
 ### User Name
 
-The user can set a username as they like. It must be less than equal to 30 letters.
+The user can set a username as they like. It must be less than equal to 30 letters and greater than equal to 1.
 This name can change anytime.
