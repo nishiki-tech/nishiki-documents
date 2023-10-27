@@ -62,7 +62,7 @@ classDiagram
         String name
         Unit Unit
         Quantity Quantity
-        Expire Expire
+        Expiry Expiry
     }
 
     class Unit {
@@ -73,8 +73,8 @@ classDiagram
         Int Quantity
     }
 
-    class Expire {
-        Date Expire
+    class Expiry {
+        Date Expiry
     }
 
     User *-- UserId : Composition
@@ -88,6 +88,6 @@ classDiagram
 
     Food *-- Unit : Composition
     Food *-- Quantity : Composition
-    Food *-- Expire : Composition
+    Food *-- Expiry : Composition
 
 ```
