@@ -1,0 +1,16 @@
+version: "3"
+services:
+  project-doc:
+    image: node:18
+    command: bash -c "npm ci && npm run build && cp -a /code/build/. /build/"
+    volumes:
+      - "./project-document:/code"
+      - "./build/project-document:/build"
+    working_dir: "/code"
+  web-api-doc:
+    image: node:18
+    volumes:
+      - "./web-api:/code"
+      - "./build/web-api:/build"
+    command: "npx @redocly/cli build-docs ./nishiki-web-api.yaml -o /build/index.html"
+    working_dir: "/code"
