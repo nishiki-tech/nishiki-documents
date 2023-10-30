@@ -17,4 +17,4 @@ To call this API, you need to be authorized by the Amazon Cognito.
 
 ## Contributing
 
-If you have an interest to contribute this project, see the [CONTRIBUTING.md](./.gitignore/CONTRIBUTING.md)
+If you have an interest to contribute this project, see the [CONTRIBUTING.md](./.github/CONTRIBUTING.md)
