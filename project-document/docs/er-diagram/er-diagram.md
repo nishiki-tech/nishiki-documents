@@ -29,6 +29,8 @@ Food {
     string name
     string food_id
     string container_id
+    string unit
+    int quantity
 }
 
 ShareLink {
