@@ -31,7 +31,7 @@ Food {
     string container_id
     string unit
     int quantity
-    Datetime expry
+    Datetime expiry
 }
 
 ShareLink {
