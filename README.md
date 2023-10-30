@@ -6,7 +6,7 @@ and the details of implementation or documents are managed in those repositories
 
 ## Project Document
 
-The project document has described the details of Nishiki. How to see it in the local is written in (here)[./project-document/README.md].
+The project document has described the details of Nishiki. How to see it in the local is written in [here](./project-document/README.md).
 
 ## Web API
 
