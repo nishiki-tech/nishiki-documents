@@ -19,7 +19,7 @@ To call this API, you need to be authorized by the Amazon Cognito.
 
 If you have an interest to contribute this project, see the [CONTRIBUTING.md](./.github/CONTRIBUTING.md)
 
-## Documents
+## Deployed Documents
 
-[Project Document](https://genesis-tech-tribe.github.io/nishiki-documents/project-document/index.html)
+[Project Document](https://genesis-tech-tribe.github.io/nishiki-documents/project-document/index.html)  
 [Web API Document](https://genesis-tech-tribe.github.io/nishiki-documents/web-api/index.html)
