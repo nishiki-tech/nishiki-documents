@@ -2,6 +2,11 @@
 
 ## Food (Entity)
 
+
+### Unit (Value Object)
+
+The lenghth of unit must be less than equal to 20 characters.
+
 ### Quantity (Value Object)
 
 The quantity must be more than equal 0.
