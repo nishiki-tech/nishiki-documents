@@ -5,29 +5,27 @@ slug: /
 # Welcome to Nishiki Project Document
 
 This is Nishiki's document.
-Nihiki is developing for saving your food.
+Nishiki is a solution for food management.
 
-Do you know what is contained in your refrigerator correctly?
-I have experienced that I bought some food that I had already bought, or I missed buying food that I had thought those remained in the refrigerator.
+Do you ever find yourself unsure about what's in your fridge?
+Perhaps you've bought groceries you already had or forgot to buy ones you thought were still in the fridge.
 
-Using Nishiki, you don't need to worry about it!
-Nishiki manages what foods are in the refrigerator for you and your partner. 
+With Nishiki, you no longer need to worry about this!
+Nishiki manages the inventory of your fridge for both you and your partner.
 
 ## Features
 
 ### Manage your refrigerator
 
-Nishiki manages your refrigerator for you.
-But not only for you, you can share it with your partner, friends, and so on.
-You no longer need to ask your partner what food remains in your refrigerator or worry about duplicates of the same food when you have a party. 
+Nishiki not only manages your fridge for you, but it also enables you to share it with your partner, friends, and more.
+You'll no longer need to ask your partner about the food in your fridge or worry about having duplicate food when you buy groceries for a party.
 
-### Shopping list (scheduled to be implemented)
+### Shopping list (upcoming feature)
 
-During cooking, you might realize the sugar is running out. 
-You can add "Sugar" to your shopping list on Nishiki, and then you can buy sugar when you go shopping. 
-You don't need to worry about forgetting to buy.
+While cooking, you may suddenly discover that you're running low on sugar. 
+With Nishiki, you can simply add "Sugar" to your shopping list, and then purchase it when you go shopping, ensuring that you won't forget to purchase it when you go shopping.
 
-### Recipe suggestions (scheduled to be implemented)
+### Recipe suggestions (upcoming feature)
 
 You might want to consume food that is nearing its expiration date, or you might want to challenge a new menu.
 Nishiki suggests a recipe for you.
