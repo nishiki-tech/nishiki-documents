@@ -11,6 +11,7 @@ tags:
 paths:
   /users/{userId}:
     get:
+      description: Get a user
       tags:
         - user
       parameters:
@@ -28,6 +29,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/User"
     put:
+      description: Update a user data
       tags:
         - user
       parameters:
@@ -54,6 +56,7 @@ paths:
           description: try to change other user's information
   /users/{userId}/containers:
     get:
+      description: get a list of the user's container
       tags:
         - user
       parameters:
@@ -74,6 +77,7 @@ paths:
                   $ref: "#/components/schemas/Container"
   /containers:
     post:
+      description: create a new container
       tags:
         - container
       requestBody:
@@ -105,6 +109,7 @@ paths:
                     example: containerId
   /containers/{containerId}:
     get:
+      description: get a container information
       tags:
         - container
       parameters:
@@ -123,6 +128,7 @@ paths:
                 $ref: "#/components/schemas/Container"
   /containers/{containerId}/foods:
     post:
+      description: add a new food
       tags:
         - container
       parameters:
@@ -144,11 +150,11 @@ paths:
                   example: bouillon
                 unit:
                   type: string
-                  nullable: true
+                  nullable: false
                   example: l
                 quantity:
                   type: integer
-                  nullable: true
+                  nullable: false
                   example: 1
                 expiry:
                   type: string
@@ -168,6 +174,7 @@ paths:
                     example: foodId
   /containers/{containerId}/foods/{foodId}:
     put:
+      description: update a food
       tags:
         - container
       parameters:
@@ -194,6 +201,7 @@ paths:
                   type: string
                   nullable: false
                   example: bouillon
+                  required: true
                 unit:
                   type: string
                   nullable: true
@@ -211,6 +219,7 @@ paths:
         "202":
           description: update complete
     delete:
+      description: delete a food
       tags:
         - container
       parameters:
@@ -231,6 +240,7 @@ paths:
           description: deletion complete
   /groups:
     post:
+      description: create a new group
       tags:
         - group
       requestBody:
@@ -256,6 +266,7 @@ paths:
                     example: group1
   /groups/{groupId}:
     get:
+      description: get a group
       tags:
         - group
       parameters:
@@ -383,11 +394,11 @@ components:
         quantity:
           type: integer
           format: int64
-          nullable: true
+          nullable: false
           example: 1
         unit:
           type: string
-          nullable: true
+          nullable: false
           example: kg
         expiry:
           type: string
