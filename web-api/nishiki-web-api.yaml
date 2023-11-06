@@ -196,12 +196,15 @@ paths:
           application/json:
             schema:
               type: object
+              required:
+                - name
+                - unit
+                - quantity
               properties:
                 name:
                   type: string
                   nullable: false
                   example: bouillon
-                  required: true
                 unit:
                   type: string
                   nullable: true
