@@ -9,6 +9,29 @@ tags:
   - name: user
     description: user of Nishiki system
 paths:
+  /users/:
+    post:
+      description: Create a new user
+      tags:
+        - user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - emailAddress
+              properties:
+                name:
+                  description: username. this name is not provided, the name will be set as a default value.
+                  type: string
+                  nullable: true
+                emailAddress:
+                  type: string
+      responses:
+        "201":
+          description: user created
   /users/{userId}:
     get:
       tags:
