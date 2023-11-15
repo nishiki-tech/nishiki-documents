@@ -166,6 +166,8 @@ paths:
           application/json:
             schema:
               type: object
+              required:
+                - "name"
               properties:
                 name:
                   type: string
@@ -173,11 +175,11 @@ paths:
                   example: bouillon
                 unit:
                   type: string
-                  nullable: false
+                  nullable: true
                   example: l
                 quantity:
                   type: integer
-                  nullable: false
+                  nullable: true
                   example: 1
                 expiry:
                   type: string
@@ -221,8 +223,6 @@ paths:
               type: object
               required:
                 - name
-                - unit
-                - quantity
               properties:
                 name:
                   type: string
@@ -420,11 +420,11 @@ components:
         quantity:
           type: integer
           format: int64
-          nullable: false
+          nullable: true
           example: 1
         unit:
           type: string
-          nullable: false
+          nullable: true
           example: kg
         expiry:
           type: string
