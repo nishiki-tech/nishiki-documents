@@ -5,7 +5,7 @@
 
 ### Unit (Value Object)
 
-The lenghth of unit must be less than equal to 20 characters.
+The length of unit must be less than equal to 20 characters.
 
 ### Quantity (Value Object)
 

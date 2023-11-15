@@ -17,8 +17,8 @@ This name can change anytime. it has default name when the group created without
 
 ## User IDs
 
-the group is composed of users. The group class has user Id list. The Group **cannot exist** without any user.
+The group is composed of users. The group class has user ID list. The Group **cannot exist** without any user.
 
-## container IDs
+## Container IDs
 
-the group is composed of containers. The group class has container ID list. The Group **can exist** without any container.
+The group is composed of containers. The group class has container ID list. The Group **can exist** without any container.
