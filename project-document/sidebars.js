@@ -47,7 +47,7 @@ const sidebars = {
                 {
                   type: "doc",
                   label: "Group",
-                  id: "domain-model/group-context/group"
+                  id: "domain-model/group-context/group-aggregate/group"
                 }
               ]
             },
@@ -58,12 +58,12 @@ const sidebars = {
                 {
                   type: "doc",
                   label: "Container",
-                  id: "domain-model/group-context/container"
+                  id: "domain-model/group-context/container-aggregate/container"
                 },
                 {
                   type: "doc",
                   label: "Food",
-                  id: "domain-model/group-context/food"
+                  id: "domain-model/group-context/container-aggregate/food"
                 }
               ]
             },
