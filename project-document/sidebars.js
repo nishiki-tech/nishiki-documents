@@ -42,15 +42,31 @@ const sidebars = {
           items: [
             {
               type: "category",
+              label: "Group Aggregate",
+              items: [
+                {
+                  type: "doc",
+                  label: "Group",
+                  id: "domain-model/group-context/group"
+                }
+              ]
+            },
+            {
+              type: "category",
               label: "Container Aggregate",
               items: [
+                {
+                  type: "doc",
+                  label: "Container",
+                  id: "domain-model/group-context/container"
+                },
                 {
                   type: "doc",
                   label: "Food",
                   id: "domain-model/group-context/food"
                 }
               ]
-            }
+            },
           ]
         }
       ]
