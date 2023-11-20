@@ -55,8 +55,19 @@ const sidebars = {
         }
       ]
     }, {
-      type: "doc",
-      id: "er-diagram/er-diagram"
+      type: "category",
+      label: "Database",
+      items: [
+        {
+          type: "doc",
+          id: "database/er-diagram",
+          label: "ER Diagram"
+        }, {
+          type: "doc",
+          id: "database/database",
+          label: "Database Definition"
+        }
+      ]
     }
   ],
 };
