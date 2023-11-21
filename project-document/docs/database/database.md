@@ -24,22 +24,6 @@ Sort key is normally, explains the type of data, if the data is about User, the 
 | Foods               | List[Object] | [Object Detail](/database#foods)    |
 | Category            | List[Object] | [Object Detail](/database#category) |
 
-#### Foods
-
-Food is the object.
-
-```object
-{
-    FoodId: string (UUID),
-    Name: String | null,
-    Unit: String | null,
-    Quantity: Number | null,
-    Category: String | null,
-    Expiry: String (Datetime) | null,
-    CreatedDatetime: String (Datetime)
-}
-```
-
 ### Contexts
 
 :::note
@@ -84,6 +68,22 @@ In this system, updating food operations are the most frequent, and in DynamoDB,
 Using GSI for writing operations result in twice the cost which is not cost-effective. Hence, we prioritize cost efficiency and opted to separate the container from the group.
 
 :::
+
+#### Foods
+
+Food is the object.
+
+```object
+{
+    FoodId: string (UUID),
+    Name: String | null,
+    Unit: String | null,
+    Quantity: Number | null,
+    Category: String | null,
+    Expiry: String (Datetime) | null,
+    CreatedDatetime: String (Datetime)
+}
+```
 
 ### Category
 
