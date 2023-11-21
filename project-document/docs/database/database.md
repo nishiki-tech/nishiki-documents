@@ -11,16 +11,18 @@ Sort key is normally, explains the type of data, if the data is about User, the 
 
 ### Attributes
 
-* UserId: String
-* UserName: String
-* EMailAddress: String
-* GroupId: String
-* GroupName: String
-* LinkExpiredDatetime: String
-* ContainerId: String
-* ContainerName: String
-* Foods: Object
-* Category: List[Object]
+| Name                | Type         | Note                                |
+|:--------------------|:-------------|:------------------------------------|
+| UserId              | String       | UUID                                |
+| UserName            | String       |                                     |
+| EMailAddress        | String       |                                     |
+| GroupId             | String       | UUID                                |
+| GroupName           | String       |                                     |
+| LinkExpiredDatetime | String       | ISO 8601 date and time              | 
+| ContainerId         | String       | UUID                                |
+| ContainerName       | String       |                                     |
+| Foods               | List[Object] | [Object Detail](/database#foods)    |
+| Category            | List[Object] | [Object Detail](/database#category) |
 
 #### Foods
 
