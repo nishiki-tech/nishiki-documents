@@ -135,15 +135,16 @@ Inside the category attribute is following:
 
 ## Access Pattern
 
-| Access pattern name    | Key (PK/SK)             |                    | Detail                                 | Context   |
+| Access pattern name    | Key (PK/SK)             | How to Access      | Detail                                 | Context   |
 |:-----------------------|:------------------------|:-------------------|:---------------------------------------|:----------|
-| GetUser                | UserID / User           | Get                | Get a single user data                 | User      |
-| ListOfUsersGroup       | UserID / Group#         | Query              | List of groups user belonging to       | User      |
-| GetGroup               | GroupID / Group         | Get                | Get a group data                       | Group     |
-| ListOfContainers       | GroupID / Container#    | Query              | List of containers belonging to group  | Group     |
-| ListOfUsers            | GroupID                 | Query against GSI  | List of users belonging to group       | Group     |
-| GetContainer           | ContainerID / Container | Get                | Get a container data                   | Container |
+| GetUser                | UserId / User           | Get                | Get a single user data                 | User      |
+| ListOfUsersGroup       | UserId / Group#         | Query              | List of groups user belonging to       | User      |
+| GetGroup               | GroupId / Group         | Get                | Get a group data                       | Group     |
+| ListOfContainers       | GroupId / Container#    | Query              | List of containers belonging to group  | Group     |
+| ListOfUsersInGroup     | GroupId                 | Query against GSI  | List of users belonging to group       | Group     |
+| GetContainer           | ContainerId / Container | Get                | Get a container data                   | Container |
 | ListOfExpiredJoinLinks | None (Datetime)         | Filter against GSI | List of join group links that expired. | Group     |
+| Categories             | None                    | Get                | Category data                          | Category  |
 
 
 ### Supplement
