@@ -71,11 +71,11 @@ PK: Group ID (UUID)
 
 PK: Container ID (UUID)
 
-| SK        | Detail         | Attribute      |
-| :-------- | :------------- | :------------- |
+| SK        | Detail         | Attribute            |
+|:----------|:---------------|:---------------------|
 | Container | Container Data | ContainerName, Foods |
 
-::: info
+:::info
 
 Container can be defined in the Group context using PK as group ID and SK as Container#{ContainerID}.
 While it makes the item structure more straightforward, it requires the use of a Global secondary Index(GSI) to retrieve container data using the container ID.
@@ -89,8 +89,8 @@ Using GSI for writing operations result in twice the cost which is not cost-effe
 
 PK: Category
 
-| SK | Detail | Category |
-|:---|:-------|:---------|
+| SK       | Detail           | Category |
+|:---------|:-----------------|:---------|
 | Category | List of category | Category |
 
 The category is fixed and won't scale.
@@ -111,11 +111,11 @@ Inside the category attribute is following:
 ### User and Group Relation
 
 | Key | Attribute |
-| :-- | :-------- |
+|:----|:----------|
 | PK  | GroupID   |
 | SK  | UserID    |
 
-::: info
+:::info
 
 This index is used for the access pattern of retrieving a list of users by the Group ID.
 The reason for not having Container and Group relation GSI, similar to User and Group relation, is that there are few chances to query groups by the container.
@@ -124,22 +124,22 @@ The reason for not having Container and Group relation GSI, similar to User and 
 
 ### JoinLink
 
-| Key  | Attribute           |
-| :--- | :------------------ |
-| PK   | GroupID             |
-| SK   | LinkExpiredDatetime |
+| Key | Attribute           |
+|:----|:--------------------|
+| PK  | GroupID             |
+| SK  | LinkExpiredDatetime |
 
 ## Access Pattern
 
-| Access pattern name | Key | Detail | Context |
-| :------------------ | :--- |:------ | :------ |
-| GetUser | UserID | Get a single user data | User |
-| ListOfUsersGroup | UserID | List of groups user belonging to | User |
-| GetGroup | GroupID | Get a group data | Group |
-| ListOfContainers | GroupID | List of containers belonging to group | Group |
-| ListOfUsres | GroupID | List of users belonging to group | Group |
-| GetContainer | ContainerID | Get a container data | Container |
-| ListOfExpiredJoinLinks | None (Datetime) | List of join group links that expired. | Group |
+| Access pattern name    | Key             | Detail                                 | Context   |
+|:-----------------------|:----------------|:---------------------------------------|:----------|
+| GetUser                | UserID          | Get a single user data                 | User      |
+| ListOfUsersGroup       | UserID          | List of groups user belonging to       | User      |
+| GetGroup               | GroupID         | Get a group data                       | Group     |
+| ListOfContainers       | GroupID         | List of containers belonging to group  | Group     |
+| ListOfUsres            | GroupID         | List of users belonging to group       | Group     |
+| GetContainer           | ContainerID     | Get a container data                   | Container |
+| ListOfExpiredJoinLinks | None (Datetime) | List of join group links that expired. | Group     |
 
 
 ### Supplement
