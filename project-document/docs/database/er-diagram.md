@@ -32,12 +32,17 @@ Food {
     string unit
     int quantity
     Datetime expiry
+    Datetime created_datetime
 }
 
 ShareLink {
     string url
     string group_id
     Datetime expired
+}
+
+Category {
+    string name
 }
 
 User ||--o{ UserGroup : "one to zero or more"
