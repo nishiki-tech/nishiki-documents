@@ -26,7 +26,9 @@ Sort key is normally, explains the type of data, if the data is about User, the 
 
 ## Global Secondary Index
 
-### User and Group Relation
+### User and Group Relations
+
+GSI Name: UserAndGroupRelationship
 
 | Key | Attribute |
 |:----|:----------|
@@ -41,6 +43,8 @@ The reason for not having Container and Group relation GSI, similar to User and 
 :::
 
 ### JoinLink
+
+GSI Name: JoinLinkDatetime
 
 | Key | Attribute           |
 |:----|:--------------------|
@@ -61,7 +65,7 @@ PK: User ID (UUID)
 
 | SK              | Detail                   | Attributes             |
 |:----------------|:-------------------------|:-----------------------|
-| USER            | User Data                | UserName, EMailAddress |
+| User            | User Data                | UserName, EMailAddress |
 | Group#{GroupID} | The group user belong to | Group ID               |
 
 ### Group
@@ -131,15 +135,15 @@ Inside the category attribute is following:
 
 ## Access Pattern
 
-| Access pattern name    | Key             | Detail                                 | Context   |
-|:-----------------------|:----------------|:---------------------------------------|:----------|
-| GetUser                | UserID          | Get a single user data                 | User      |
-| ListOfUsersGroup       | UserID          | List of groups user belonging to       | User      |
-| GetGroup               | GroupID         | Get a group data                       | Group     |
-| ListOfContainers       | GroupID         | List of containers belonging to group  | Group     |
-| ListOfUsers            | GroupID         | List of users belonging to group       | Group     |
-| GetContainer           | ContainerID     | Get a container data                   | Container |
-| ListOfExpiredJoinLinks | None (Datetime) | List of join group links that expired. | Group     |
+| Access pattern name    | Key (PK/SK)             |                    | Detail                                 | Context   |
+|:-----------------------|:------------------------|:-------------------|:---------------------------------------|:----------|
+| GetUser                | UserID / User           | Get                | Get a single user data                 | User      |
+| ListOfUsersGroup       | UserID / Group#         | Query              | List of groups user belonging to       | User      |
+| GetGroup               | GroupID / Group         | Get                | Get a group data                       | Group     |
+| ListOfContainers       | GroupID / Container#    | Query              | List of containers belonging to group  | Group     |
+| ListOfUsers            | GroupID                 | Query against GSI  | List of users belonging to group       | Group     |
+| GetContainer           | ContainerID / Container | Get                | Get a container data                   | Container |
+| ListOfExpiredJoinLinks | None (Datetime)         | Filter against GSI | List of join group links that expired. | Group     |
 
 
 ### Supplement
