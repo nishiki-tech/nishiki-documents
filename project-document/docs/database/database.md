@@ -11,16 +11,14 @@ Sort key is normally, explains the type of data, if the data is about User, the 
 
 ### Attributes
 
+* UserId: String
 * UserName: String
 * EMailAddress: String
 * GroupID: String
 * GroupName: String
-* ContainerName: String
 * LinkExpiredDatetime: String
-* BelongingUsers: List[String]
-* UserId: String
-* GroupId String
 * ContainerID: String
+* ContainerName: String
 * Foods: Object
 * Category: List[Object]
 
