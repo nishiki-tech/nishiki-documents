@@ -24,6 +24,29 @@ Sort key is normally, explains the type of data, if the data is about User, the 
 | Foods               | List[Object] | [Object Detail](/database#foods)    |
 | Category            | List[Object] | [Object Detail](/database#category) |
 
+## Global Secondary Index
+
+### User and Group Relation
+
+| Key | Attribute |
+|:----|:----------|
+| PK  | GroupID   |
+| SK  | UserID    |
+
+:::info
+
+This index is used for the access pattern of retrieving a list of users by the Group ID.
+The reason for not having Container and Group relation GSI, similar to User and Group relation, is that there are few chances to query groups by the container.
+
+:::
+
+### JoinLink
+
+| Key | Attribute           |
+|:----|:--------------------|
+| PK  | GroupID             |
+| SK  | LinkExpiredDatetime |
+
 ### Contexts
 
 :::note
@@ -106,29 +129,6 @@ Inside the category attribute is following:
 ]
 ```
 
-## Global Secondary Index
-
-### User and Group Relation
-
-| Key | Attribute |
-|:----|:----------|
-| PK  | GroupID   |
-| SK  | UserID    |
-
-:::info
-
-This index is used for the access pattern of retrieving a list of users by the Group ID.
-The reason for not having Container and Group relation GSI, similar to User and Group relation, is that there are few chances to query groups by the container.
-
-:::
-
-### JoinLink
-
-| Key | Attribute           |
-|:----|:--------------------|
-| PK  | GroupID             |
-| SK  | LinkExpiredDatetime |
-
 ## Access Pattern
 
 | Access pattern name    | Key             | Detail                                 | Context   |
@@ -137,7 +137,7 @@ The reason for not having Container and Group relation GSI, similar to User and 
 | ListOfUsersGroup       | UserID          | List of groups user belonging to       | User      |
 | GetGroup               | GroupID         | Get a group data                       | Group     |
 | ListOfContainers       | GroupID         | List of containers belonging to group  | Group     |
-| ListOfUsres            | GroupID         | List of users belonging to group       | Group     |
+| ListOfUsers            | GroupID         | List of users belonging to group       | Group     |
 | GetContainer           | ContainerID     | Get a container data                   | Container |
 | ListOfExpiredJoinLinks | None (Datetime) | List of join group links that expired. | Group     |
 
