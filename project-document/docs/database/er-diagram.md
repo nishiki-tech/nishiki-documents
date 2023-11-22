@@ -32,6 +32,7 @@ Food {
     string unit
     int quantity
     Datetime expiry
+    Datetime created_datetime
 }
 
 ShareLink {
@@ -40,7 +41,6 @@ ShareLink {
     Datetime expired
 }
 
-User ||--o{ UserGroup : "one to zero or more"
 Group ||--|{ UserGroup : "one to one or more"
 Group ||--o{ Container : "one to zero or more"
 Container ||--o{ Food : "zero or more"
