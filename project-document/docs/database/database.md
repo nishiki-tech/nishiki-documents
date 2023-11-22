@@ -22,7 +22,6 @@ Sort key is normally, explains the type of data, if the data is about User, the 
 | ContainerId         | String       | UUID                                |
 | ContainerName       | String       |                                     |
 | Foods               | List[Object] | [Object Detail](/database#foods)    |
-| Category            | List[Object] | [Object Detail](/database#category) |
 
 ## Global Secondary Index
 
@@ -112,27 +111,6 @@ Food is the object.
 }
 ```
 
-### Category
-
-PK: Category
-
-| SK       | Detail           | Category |
-|:---------|:-----------------|:---------|
-| Category | List of category | Category |
-
-The category is fixed and won't scale.
-This item just holds those data as a list.
-
-Inside the category attribute is following:
-
-```object
-[
-    {
-        name: string
-    }
-]
-```
-
 ## Access Pattern
 
 | Access pattern name    | Key (PK/SK)             | How to Access      | Detail                                 | Context   |
@@ -144,8 +122,6 @@ Inside the category attribute is following:
 | ListOfUsersInGroup     | GroupId                 | Query against GSI  | List of users belonging to group       | Group     |
 | GetContainer           | ContainerId / Container | Get                | Get a container data                   | Container |
 | ListOfExpiredJoinLinks | None (Datetime)         | Filter against GSI | List of join group links that expired. | Group     |
-| Categories             | None                    | Get                | Category data                          | Category  |
-
 
 ### Supplement
 

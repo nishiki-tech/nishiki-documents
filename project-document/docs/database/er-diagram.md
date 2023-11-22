@@ -41,11 +41,6 @@ ShareLink {
     Datetime expired
 }
 
-Category {
-    string name
-}
-
-User ||--o{ UserGroup : "one to zero or more"
 Group ||--|{ UserGroup : "one to one or more"
 Group ||--o{ Container : "one to zero or more"
 Container ||--o{ Food : "zero or more"
