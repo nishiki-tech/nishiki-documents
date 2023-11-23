@@ -27,8 +27,8 @@ Sort key is normally, explains the type of data, if the data is about User, the 
 
 ### User and Group Relations
 
-GSI Name: UserAndGroupRelationship  
-Projection Type: KEY_ONLY
+**GSI Name**: UserAndGroupRelationship  
+**Projection Type**: KEY_ONLY
 
 | Key | Attribute |
 |:----|:----------|
@@ -44,8 +44,8 @@ The reason for not having Container and Group relation GSI, similar to User and 
 
 ### JoinLink
 
-GSI Name: JoinLinkDatetime  
-Projection Type: KEY_ONLY
+**GSI Name**: JoinLinkDatetime  
+**Projection Type**: KEY_ONLY
 
 | Key | Attribute           |
 |:----|:--------------------|
@@ -62,7 +62,7 @@ The {} means that the value inside it will be dynamic value.
 
 ### User
 
-PK: User ID (UUID)
+**PK**: User ID (UUID)
 
 | SK              | Detail                   | Attributes             |
 |:----------------|:-------------------------|:-----------------------|
@@ -71,7 +71,7 @@ PK: User ID (UUID)
 
 ### Group
 
-PK: Group ID (UUID)
+**PK**: Group ID (UUID)
 
 | SK                      | Detail                     | Attributes                   |
 |:------------------------|:---------------------------|:-----------------------------|
@@ -81,7 +81,7 @@ PK: Group ID (UUID)
 
 ### Container
 
-PK: Container ID (UUID)
+**PK**: Container ID (UUID)
 
 | SK        | Detail         | Attribute            |
 |:----------|:---------------|:---------------------|
