@@ -31,8 +31,8 @@ GSI Name: UserAndGroupRelationship
 
 | Key | Attribute |
 |:----|:----------|
-| PK  | GroupID   |
-| SK  | UserID    |
+| PK  | GroupId   |
+| SK  | UserId    |
 
 :::info
 
@@ -47,7 +47,7 @@ GSI Name: JoinLinkDatetime
 
 | Key | Attribute           |
 |:----|:--------------------|
-| PK  | GroupID             |
+| PK  | GroupId             |
 | SK  | LinkExpiredDatetime |
 
 ### Contexts
@@ -65,7 +65,7 @@ PK: User ID (UUID)
 | SK              | Detail                   | Attributes             |
 |:----------------|:-------------------------|:-----------------------|
 | User            | User Data                | UserName, EMailAddress |
-| Group#{GroupID} | The group user belong to | Group ID               |
+| Group#{GroupID} | The group user belong to | GroupId                |
 
 ### Group
 
@@ -74,8 +74,8 @@ PK: Group ID (UUID)
 | SK                      | Detail                     | Attributes                   |
 |:------------------------|:---------------------------|:-----------------------------|
 | Group                   | Group Data                 | GroupName, Users             |
-| Container#{ContainerID} | Container Data             | ContainerID                  |
-| ShareLink#{Datetime}    | Join Link Expired Datetime | LinkExpiredDatetime, GroupID |
+| Container#{ContainerID} | Container Data             | ContainerId                  |
+| ShareLink#{Datetime}    | Join Link Expired Datetime | LinkExpiredDatetime, GroupId |
 
 ### Container
 
