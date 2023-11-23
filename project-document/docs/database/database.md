@@ -25,7 +25,7 @@ Sort key is normally, explains the type of data, if the data is about User, the 
 
 ## Global Secondary Index (GSI)
 
-### User and Group Relations
+### UserAndGroupRelations
 
 **GSI Name**: UserAndGroupRelationship  
 **Projection Type**: KEY_ONLY
