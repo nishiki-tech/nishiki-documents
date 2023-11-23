@@ -2,6 +2,11 @@
 
 This system use DynamoDB.
 
+## Table Configs
+
+**Table Name**: NishikiTable
+**Deletion Policy**: Retain (In develop environment, Delete)
+
 ## Table Structure
 
 ### Key
