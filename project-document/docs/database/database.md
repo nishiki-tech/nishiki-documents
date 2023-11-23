@@ -23,7 +23,7 @@ Sort key is normally, explains the type of data, if the data is about User, the 
 | ContainerName       | String       |                                     |
 | Foods               | List[Object] | [Object Detail](/database#foods)    |
 
-## Global Secondary Index
+## Global Secondary Index (GSI)
 
 ### User and Group Relations
 
