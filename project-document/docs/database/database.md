@@ -27,7 +27,8 @@ Sort key is normally, explains the type of data, if the data is about User, the 
 
 ### User and Group Relations
 
-GSI Name: UserAndGroupRelationship
+GSI Name: UserAndGroupRelationship  
+Projection Type: KEY_ONLY
 
 | Key | Attribute |
 |:----|:----------|
@@ -43,7 +44,8 @@ The reason for not having Container and Group relation GSI, similar to User and 
 
 ### JoinLink
 
-GSI Name: JoinLinkDatetime
+GSI Name: JoinLinkDatetime  
+Projection Type: KEY_ONLY
 
 | Key | Attribute           |
 |:----|:--------------------|
