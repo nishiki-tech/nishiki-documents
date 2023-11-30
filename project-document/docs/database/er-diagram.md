@@ -41,6 +41,7 @@ ShareLink {
     Datetime expired
 }
 
+User || --|{ UserGroup : "one to one or more"
 Group ||--|{ UserGroup : "one to one or more"
 Group ||--o{ Container : "one to zero or more"
 Container ||--o{ Food : "zero or more"
