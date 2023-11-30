@@ -2,6 +2,11 @@
 
 This system use DynamoDB.
 
+## Table Configs
+
+**Table Name**: NishikiTable
+**Deletion Policy**: Retain (In develop environment, Delete)
+
 ## Table Structure
 
 ### Key
@@ -23,16 +28,17 @@ Sort key is normally, explains the type of data, if the data is about User, the 
 | ContainerName       | String       |                                     |
 | Foods               | List[Object] | [Object Detail](/database#foods)    |
 
-## Global Secondary Index
+## Global Secondary Index (GSI)
 
-### User and Group Relations
+### UserAndGroupRelations
 
-GSI Name: UserAndGroupRelationship
+**GSI Name**: UserAndGroupRelationship  
+**Projection Type**: KEY_ONLY
 
 | Key | Attribute |
 |:----|:----------|
-| PK  | GroupID   |
-| SK  | UserID    |
+| PK  | GroupId   |
+| SK  | UserId    |
 
 :::info
 
@@ -43,14 +49,15 @@ The reason for not having Container and Group relation GSI, similar to User and 
 
 ### JoinLink
 
-GSI Name: JoinLinkDatetime
+**GSI Name**: JoinLinkDatetime  
+**Projection Type**: KEY_ONLY
 
 | Key | Attribute           |
 |:----|:--------------------|
-| PK  | GroupID             |
+| PK  | GroupId             |
 | SK  | LinkExpiredDatetime |
 
-### Contexts
+## Contexts
 
 :::note
 
@@ -60,26 +67,26 @@ The {} means that the value inside it will be dynamic value.
 
 ### User
 
-PK: User ID (UUID)
+**PK**: User ID (UUID)
 
 | SK              | Detail                   | Attributes             |
 |:----------------|:-------------------------|:-----------------------|
 | User            | User Data                | UserName, EMailAddress |
-| Group#{GroupID} | The group user belong to | Group ID               |
+| Group#{GroupID} | The group user belong to | GroupId                |
 
 ### Group
 
-PK: Group ID (UUID)
+**PK**: Group ID (UUID)
 
 | SK                      | Detail                     | Attributes                   |
 |:------------------------|:---------------------------|:-----------------------------|
 | Group                   | Group Data                 | GroupName, Users             |
-| Container#{ContainerID} | Container Data             | ContainerID                  |
-| ShareLink#{Datetime}    | Join Link Expired Datetime | LinkExpiredDatetime, GroupID |
+| Container#{ContainerID} | Container Data             | ContainerId                  |
+| ShareLink#{Datetime}    | Join Link Expired Datetime | LinkExpiredDatetime, GroupId |
 
 ### Container
 
-PK: Container ID (UUID)
+**PK**: Container ID (UUID)
 
 | SK        | Detail         | Attribute            |
 |:----------|:---------------|:---------------------|
