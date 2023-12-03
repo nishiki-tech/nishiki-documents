@@ -330,6 +330,24 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Container"
+  /groups/{groupId}/users:
+    get:
+      description: Get a list of users in the group
+      tags:
+        - group
+      parameters:
+        - name: groupId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: list of users
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UsersBelongToGroup"
   /groups/{groupId}/users/{userId}:
     put:
       tags:
@@ -427,6 +445,18 @@ components:
             - 3434
           items:
             type: string
+    UsersBelongToGroup:
+      type: object
+      properties:
+        userId:
+          type: string
+          nullable: false
+          format: uuid
+          example: 55b270e3-1fa7-4c89-b5b8-66ab0cac3626
+        userName:
+          type: string
+          nullable: false
+          example: hoge
     Food:
       type: object
       properties:
