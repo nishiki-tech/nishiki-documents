@@ -292,7 +292,7 @@ paths:
                     example: group1
   /groups/{groupId}:
     get:
-      description: get a group
+      description: Get a group
       tags:
         - group
       parameters:
@@ -393,19 +393,15 @@ components:
     Group:
       type: object
       properties:
-        id:
+        groupId:
           type: string
           nullable: false
-          example: 42
-        users:
-          type: array
+          format: uuid
+          example: 82597aad-0d1b-4672-8b9a-fd3764cb9928
+        groupName:
+          type: string
           nullable: false
-          example:
-            - 1212
-            - 2323
-            - 3434
-          items:
-            type: string
+          example: group1
     Food:
       type: object
       properties:
