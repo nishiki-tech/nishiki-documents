@@ -292,7 +292,7 @@ paths:
                     example: group1
   /groups/{groupId}:
     get:
-      description: get a group
+      description: Get a group
       tags:
         - group
       parameters:
@@ -309,6 +309,31 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Group"
+  /groups/{userId}:
+    get:
+      description: Get a list of groups linked to a user
+      tags:
+        - group
+      parameters:
+        - name: userId
+          in: path
+          description: ID of user
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: a list of groups information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  groups:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Group"
   /groups/{groupId}/containers:
     get:
       description: get a list of the group's container
@@ -435,19 +460,15 @@ components:
     Group:
       type: object
       properties:
-        id:
+        groupId:
           type: string
           nullable: false
-          example: 42
-        users:
-          type: array
+          format: uuid
+          example: 82597aad-0d1b-4672-8b9a-fd3764cb9928
+        groupName:
+          type: string
           nullable: false
-          example:
-            - 1212
-            - 2323
-            - 3434
-          items:
-            type: string
+          example: group1
     UsersBelongToGroup:
       type: array
       items:
