@@ -347,7 +347,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UsersBelongToGroup"
+                type: object
+                properties:
+                  users:
+                    $ref: "#/components/schemas/UsersBelongToGroup"
   /groups/{groupId}/users/{userId}:
     put:
       tags:
@@ -446,17 +449,19 @@ components:
           items:
             type: string
     UsersBelongToGroup:
-      type: object
-      properties:
-        userId:
-          type: string
-          nullable: false
-          format: uuid
-          example: 55b270e3-1fa7-4c89-b5b8-66ab0cac3626
-        userName:
-          type: string
-          nullable: false
-          example: hoge
+      type: array
+      items:
+        type: object
+        properties:
+          userId:
+            type: string
+            nullable: false
+            format: uuid
+            example: 55b270e3-1fa7-4c89-b5b8-66ab0cac3626
+          userName:
+            type: string
+            nullable: false
+            example: hoge
     Food:
       type: object
       properties:
