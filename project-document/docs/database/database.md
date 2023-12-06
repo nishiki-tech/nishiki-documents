@@ -4,8 +4,14 @@ This system use DynamoDB.
 
 ## Table Configs
 
-**Table Name**: NishikiTable
+**Table Name**: nishiki-table-prod-db  
 **Deletion Policy**: Retain (In develop environment, Delete)
+
+::: note
+
+In the development environment, the DB name is changed to the `nishiki-table-dev-db`.
+
+:::
 
 ## Table Structure
 
