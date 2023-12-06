@@ -57,6 +57,15 @@ The reason for not having Container and Group relation GSI, similar to User and 
 | PK  | GroupId             |
 | SK  | LinkExpiredDatetime |
 
+### EMailUserRelation
+
+**GSI Name**: EMailAndUserIdRelationship  
+**Projection Type**: KEY_ONLY
+
+| Key | Attribute      |
+|:----|:---------------|
+| PK  | EMailAddress   |
+
 ## Contexts
 
 :::note
