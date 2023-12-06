@@ -432,7 +432,8 @@ components:
         id:
           type: string
           nullable: false
-          example: 1234567890
+          format: uuid
+          example: 939a4c50-ee7b-4558-b8d5-371514e77bed
         name:
           type: string
           nullable: false
