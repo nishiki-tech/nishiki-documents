@@ -266,7 +266,8 @@ paths:
           description: deletion complete
   /groups:
     get:
-      description: Get a list of groups linked to a user
+      summary: Get a list of groups linked to a user
+      description: The requesting user is detected by the token.
       tags:
         - group
       responses:
