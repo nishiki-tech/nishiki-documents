@@ -77,11 +77,12 @@ paths:
           description: update user's information
         "401":
           description: try to change other user's information
-  /users/{userId}/containers:
+  /containers:
     get:
-      description: get a list of the user's container
+      summary: Get a list of the user's container
+      description: The requesting user is identified by the token of request.
       tags:
-        - user
+        - container
       parameters:
         - name: userId
           in: path
@@ -91,14 +92,13 @@ paths:
             type: string
       responses:
         "200":
-          description: get user's containers
+          description: Get containers linked to the user
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: "#/components/schemas/Container"
-  /containers:
     post:
       description: create a new container
       tags:
