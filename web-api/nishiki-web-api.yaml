@@ -9,7 +9,20 @@ tags:
   - name: user
     description: user of Nishiki system
 paths:
-  /users/:
+  /auth/me:
+    get:
+      summary: Get a User ID
+      description: The user is identified by the token.
+      tags:
+        - auth
+      responses:
+        "200":
+          description: User ID
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserId"
+  /users:
     post:
       description: Create a new user
       tags:
@@ -398,6 +411,13 @@ paths:
           description: deletion complete
 components:
   schemas:
+    UserId:
+      type: object
+      properties:
+        userId:
+          type: string
+          format: uuid
+          example: 2dd6dd70-5b3a-4329-9b70-01fd18c4b23c
     User:
       type: object
       properties:
