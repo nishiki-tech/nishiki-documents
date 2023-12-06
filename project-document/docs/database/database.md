@@ -132,6 +132,7 @@ Food is the object.
 | Access pattern name    | Key (PK/SK)             | How to Access      | Detail                                 | Context   |
 |:-----------------------|:------------------------|:-------------------|:---------------------------------------|:----------|
 | GetUser                | UserId / User           | Get                | Get a single user data                 | User      |
+| GetUserByEMail         | EMailAddress            | Get                | Get a single user data                 | User      |
 | ListOfUsersGroup       | UserId / Group#         | Query              | List of groups user belonging to       | User      |
 | GetGroup               | GroupId / Group         | Get                | Get a group data                       | Group     |
 | ListOfContainers       | GroupId / Container#    | Query              | List of containers belonging to group  | Group     |
