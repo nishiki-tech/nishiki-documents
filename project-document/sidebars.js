@@ -56,6 +56,16 @@ const sidebars = {
       ]
     }, {
       type: "category",
+      label: "System Architecture",
+      items: [
+        {
+          type: "doc",
+          label: "Overview",
+          id: "system-architecture/overview"
+        }
+      ]
+    }, {
+      type: "category",
       label: "Database",
       items: [
         {
