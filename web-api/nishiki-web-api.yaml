@@ -265,6 +265,22 @@ paths:
         "202":
           description: deletion complete
   /groups:
+    get:
+      description: Get a list of groups linked to a user
+      tags:
+        - group
+      responses:
+        "200":
+          description: a list of groups information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  groups:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Group"
     post:
       description: create a new group
       tags:
@@ -309,31 +325,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Group"
-  /groups/{userId}:
-    get:
-      description: Get a list of groups linked to a user
-      tags:
-        - group
-      parameters:
-        - name: userId
-          in: path
-          description: ID of user
-          required: true
-          schema:
-            type: string
-            format: uuid
-      responses:
-        "200":
-          description: a list of groups information
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  groups:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Group"
   /groups/{groupId}/containers:
     get:
       description: get a list of the group's container
