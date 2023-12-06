@@ -355,6 +355,29 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Container"
+  /groups/{groupId}/users:
+    get:
+      description: Get a list of users in the group
+      tags:
+        - group
+      parameters:
+        - name: groupId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: list of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    users:
+                      $ref: "#/components/schemas/User"
   /groups/{groupId}/users/{userId}:
     put:
       tags:
@@ -404,18 +427,12 @@ components:
         id:
           type: string
           nullable: false
-          example: 1234567890
+          format: uuid
+          example: 679adc58-b03a-4fb6-993b-c72404087375
         name:
           type: string
           nullable: false
           example: John
-        groups:
-          type: array
-          nullable: false
-          example:
-            - groupId
-          items:
-            type: string
     Container:
       type: object
       properties:
