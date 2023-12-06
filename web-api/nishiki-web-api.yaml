@@ -464,7 +464,8 @@ components:
       properties:
         id:
           type: string
-          example: 42
+          example: 3c740136-58b7-4c3d-9548-fc0a4d3b3ef4
+          format: uuid
           nullable: false
         name:
           type: string
