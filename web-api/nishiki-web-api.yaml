@@ -83,13 +83,6 @@ paths:
       description: The requesting user is identified by the token of request.
       tags:
         - container
-      parameters:
-        - name: userId
-          in: path
-          description: ID of user
-          required: true
-          schema:
-            type: string
       responses:
         "200":
           description: Get containers linked to the user
