@@ -290,15 +290,15 @@ paths:
                   groupId:
                     type: string
                     example: group1
-  /groups/{groupId}:
+  /groups/{userId}:
     get:
-      description: Get a group
+      description: Get a list of groups that a user belongs to
       tags:
         - group
       parameters:
-        - name: groupId
+        - name: userId
           in: path
-          description: ID of group
+          description: User ID
           required: true
           schema:
             type: string
@@ -308,53 +308,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Group"
-  /groups/{userId}:
-    get:
-      description: Get a list of groups linked to a user
-      tags:
-        - group
-      parameters:
-        - name: userId
-          in: path
-          description: ID of user
-          required: true
-          schema:
-            type: string
-            format: uuid
-      responses:
-        "200":
-          description: a list of groups information
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  groups:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Group"
-  /groups/{groupId}/containers:
-    get:
-      description: get a list of the group's container
-      tags:
-        - group
-      parameters:
-        - name: groupId
-          in: path
-          description: ID of group
-          required: true
-          schema:
-            type: string
-      responses:
-        "200":
-          description: get group's containers
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Container"
+                $ref: "#/components/schemas/GroupsUserBelongingTo"
   /groups/{groupId}/users/{userId}:
     put:
       tags:
@@ -436,18 +390,24 @@ components:
           nullable: false
           items:
             $ref: "#/components/schemas/Food"
-    Group:
+    GroupsUserBelongingTo:
       type: object
       properties:
-        groupId:
-          type: string
+        groups:
+          type: array
           nullable: false
-          format: uuid
-          example: 82597aad-0d1b-4672-8b9a-fd3764cb9928
-        groupName:
-          type: string
-          nullable: false
-          example: group1
+          items:
+            type: object
+            properties:
+              groupId:
+                type: string
+                nullable: false
+                format: uuid
+                example: 395824b6-57e1-4047-9425-37df182ba15d
+              groupName:
+                type: string
+                nullable: false
+                example: group1
     Food:
       type: object
       properties:
