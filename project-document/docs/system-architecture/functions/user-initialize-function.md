@@ -14,7 +14,7 @@ Consequently, this system must create a new group and a new container for each n
 
 ## How this function work
 
-This function hooks Cognito's sign-up event, which provides the user's email address.
+[This function hooks Cognito's sign-up event](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html), which provides the user's email address.
 Leveraging this information, the function initiate the following process using the API of [main function's API](/system-architecture/functions/main-function).
 
 1. [Register the user in Nishiki.](https://genesis-tech-tribe.github.io/nishiki-documents/web-api/index.html#tag/user/paths/~1users/post)
