@@ -90,28 +90,21 @@ paths:
           description: update user's information
         "401":
           description: try to change other user's information
-  /users/{userId}/containers:
+  /containers:
     get:
-      description: get a list of the user's container
+      summary: Get a list of the user's container
+      description: The requesting user is identified by the token of request.
       tags:
-        - user
-      parameters:
-        - name: userId
-          in: path
-          description: ID of user
-          required: true
-          schema:
-            type: string
+        - container
       responses:
         "200":
-          description: get user's containers
+          description: Get containers linked to the user
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: "#/components/schemas/Container"
-  /containers:
     post:
       description: create a new container
       tags:
@@ -451,7 +444,8 @@ components:
         id:
           type: string
           nullable: false
-          example: 1234567890
+          format: uuid
+          example: 939a4c50-ee7b-4558-b8d5-371514e77bed
         name:
           type: string
           nullable: false
@@ -482,7 +476,8 @@ components:
       properties:
         id:
           type: string
-          example: 42
+          example: 3c740136-58b7-4c3d-9548-fc0a4d3b3ef4
+          format: uuid
           nullable: false
         name:
           type: string
