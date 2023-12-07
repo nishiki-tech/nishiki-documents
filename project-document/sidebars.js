@@ -71,6 +71,11 @@ const sidebars = {
               type: "doc",
               label: "Main Function",
               id: "system-architecture/functions/main-function"
+            },
+            {
+              type: "doc",
+              label: "User Initialize Function",
+              id: "system-architecture/functions/user-initialize-function"
             }
           ]
         }
