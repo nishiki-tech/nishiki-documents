@@ -71,3 +71,22 @@ Therefor, the construct ID must be PascalCase.
 |:-----------|:------------|
 | dev        | development |
 | prod       | production  |
+
+## CKD Stack
+
+In this system, there are two stacks, StaticAssetsStack and BackendStack.
+
+### Static Asset Stack
+
+This stack manages stateful assets such as the database, Cognito, and API Gateway.
+Those resources are not subject to frequent updates and must be preserved from changes.
+For these reasons, this stack is dedicated to managing stateful resources.
+
+### Backend Stack
+
+This stack is responsible for managing stateless resources like the Lambda function.
+Unlike Static Asset, stateless resources do not need to be the same asset, ultimately, those can be destroyed and deployed with every update.
+
+The Backend Stack can be automatically deployed through the CI/CD pipeline.
+Whereas, the Static Assets should be deployed manually.
+This is because there is a lower chance of changes, and it's crucial to preserve them from unintentional updates.
