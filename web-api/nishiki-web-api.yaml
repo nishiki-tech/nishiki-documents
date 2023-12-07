@@ -9,7 +9,20 @@ tags:
   - name: user
     description: user of Nishiki system
 paths:
-  /users/:
+  /auth/me:
+    get:
+      summary: Get a User ID
+      description: The user is identified by the token.
+      tags:
+        - auth
+      responses:
+        "200":
+          description: User ID
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserId"
+  /users:
     post:
       description: Create a new user
       tags:
@@ -77,28 +90,21 @@ paths:
           description: update user's information
         "401":
           description: try to change other user's information
-  /users/{userId}/containers:
+  /containers:
     get:
-      description: get a list of the user's container
+      summary: Get a list of the user's container
+      description: The requesting user is identified by the token of request.
       tags:
-        - user
-      parameters:
-        - name: userId
-          in: path
-          description: ID of user
-          required: true
-          schema:
-            type: string
+        - container
       responses:
         "200":
-          description: get user's containers
+          description: Get containers linked to the user
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: "#/components/schemas/Container"
-  /containers:
     post:
       description: create a new container
       tags:
@@ -265,6 +271,23 @@ paths:
         "202":
           description: deletion complete
   /groups:
+    get:
+      summary: Get a list of groups linked to a user
+      description: The requesting user is detected by the token.
+      tags:
+        - group
+      responses:
+        "200":
+          description: a list of groups information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  groups:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Group"
     post:
       description: create a new group
       tags:
@@ -290,15 +313,15 @@ paths:
                   groupId:
                     type: string
                     example: group1
-  /groups/{userId}:
+  /groups/{groupId}:
     get:
-      description: Get a list of groups that a user belongs to
+      description: Get a group
       tags:
         - group
       parameters:
-        - name: userId
+        - name: groupId
           in: path
-          description: User ID
+          description: ID of group
           required: true
           schema:
             type: string
@@ -308,7 +331,51 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GroupsUserBelongingTo"
+                $ref: "#/components/schemas/Group"
+  /groups/{groupId}/containers:
+    get:
+      description: get a list of the group's container
+      tags:
+        - group
+      parameters:
+        - name: groupId
+          in: path
+          description: ID of group
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: get group's containers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Container"
+  /groups/{groupId}/users:
+    get:
+      description: Get a list of users in the group
+      tags:
+        - group
+      parameters:
+        - name: groupId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: list of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    users:
+                      $ref: "#/components/schemas/User"
   /groups/{groupId}/users/{userId}:
     put:
       tags:
@@ -352,31 +419,33 @@ paths:
           description: deletion complete
 components:
   schemas:
+    UserId:
+      type: object
+      properties:
+        userId:
+          type: string
+          format: uuid
+          example: 2dd6dd70-5b3a-4329-9b70-01fd18c4b23c
     User:
       type: object
       properties:
         id:
           type: string
           nullable: false
-          example: 1234567890
+          format: uuid
+          example: 679adc58-b03a-4fb6-993b-c72404087375
         name:
           type: string
           nullable: false
           example: John
-        groups:
-          type: array
-          nullable: false
-          example:
-            - groupId
-          items:
-            type: string
     Container:
       type: object
       properties:
         id:
           type: string
           nullable: false
-          example: 1234567890
+          format: uuid
+          example: 939a4c50-ee7b-4558-b8d5-371514e77bed
         name:
           type: string
           nullable: false
@@ -390,30 +459,25 @@ components:
           nullable: false
           items:
             $ref: "#/components/schemas/Food"
-    GroupsUserBelongingTo:
+    Group:
       type: object
       properties:
-        groups:
-          type: array
+        groupId:
+          type: string
           nullable: false
-          items:
-            type: object
-            properties:
-              groupId:
-                type: string
-                nullable: false
-                format: uuid
-                example: 395824b6-57e1-4047-9425-37df182ba15d
-              groupName:
-                type: string
-                nullable: false
-                example: group1
+          format: uuid
+          example: 82597aad-0d1b-4672-8b9a-fd3764cb9928
+        groupName:
+          type: string
+          nullable: false
+          example: group1
     Food:
       type: object
       properties:
         id:
           type: string
-          example: 42
+          example: 3c740136-58b7-4c3d-9548-fc0a4d3b3ef4
+          format: uuid
           nullable: false
         name:
           type: string
