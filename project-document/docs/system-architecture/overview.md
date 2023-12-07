@@ -4,29 +4,35 @@ This system is hosted on the AWS.
 
 ![aws-architecture](/img/aws/structure.drawio.svg)
 
-These services are deployed using [AWS CDK](https://docs.aws.amazon.com/cdk/v2/guide/home.html).
-It enables us to manage the infrastructure by code.
-The code is hosted on [the cdk directory in the backend repository.](https://github.com/genesis-tech-tribe/nishiki-backend/tree/develop/cdk)
+We have deployed these services using [AWS CDK](https://docs.aws.amazon.com/cdk/v2/guide/home.html), allowing us to manage the infrastructure by code.
+The code is hosted on [the cdk directory within the backend repository.](https://github.com/genesis-tech-tribe/nishiki-backend/tree/develop/cdk)
 
 ## Using Services
 
-[Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html)
+Cognito [(Official)](https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html)
 
 The user information is managed by this service.
 
 ![Cognito](/img/aws/resources/Arch_Amazon-Cognito_48.svg)
 
-[API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html)
+API Gateway [(Official)](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html)
 
-The API is 
+[The API uses the Cognito as an authorizer.](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html)
+This means that the client, requesting access to this API, must be authorized by the Cognito.
 
 ![API Gateway](/img/aws/resources/Arch_Amazon-API-Gateway_48.svg)
 
-[Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
+Lambda [Official](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
+
+This system employs multiple lambdas.
+The main application, literary named the main function, handles the primary logic.
+Additionally, there is a helper function responsible for initial processing when registering user information.
 
 ![Lambda](/img/aws/resources/Arch_AWS-Lambda_48.svg)
 
-[DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html)
+DynamoDB [(Official)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html)
+
+This system uses DynamoDB as a main DB. The detail is described [this page](/database).
 
 ![DynamoDB](/img/aws/resources/Arch_Amazon-DynamoDB_48.svg)
 
