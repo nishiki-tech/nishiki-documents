@@ -62,6 +62,17 @@ const sidebars = {
           type: "doc",
           label: "Overview",
           id: "system-architecture/overview"
+        },
+        {
+          type: "category",
+          label: "Functions",
+          items: [
+            {
+              type: "doc",
+              label: "Main Function",
+              id: "system-architecture/functions/main-function"
+            }
+          ]
         }
       ]
     }, {
