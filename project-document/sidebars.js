@@ -56,6 +56,32 @@ const sidebars = {
       ]
     }, {
       type: "category",
+      label: "System Architecture",
+      items: [
+        {
+          type: "doc",
+          label: "Overview",
+          id: "system-architecture/overview"
+        },
+        {
+          type: "category",
+          label: "Functions",
+          items: [
+            {
+              type: "doc",
+              label: "Main Function",
+              id: "system-architecture/functions/main-function"
+            },
+            {
+              type: "doc",
+              label: "User Initialize Function",
+              id: "system-architecture/functions/user-initialize-function"
+            }
+          ]
+        }
+      ]
+    }, {
+      type: "category",
       label: "Database",
       items: [
         {
