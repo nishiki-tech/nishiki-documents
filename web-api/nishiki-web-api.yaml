@@ -350,9 +350,12 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Container"
+                type: object
+                properties:
+                  containers:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Container"
   /groups/{groupId}/users:
     get:
       description: Get a list of users in the group
@@ -370,9 +373,12 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/User"
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/User"
   /groups/{groupId}/users/{userId}:
     put:
       tags:
