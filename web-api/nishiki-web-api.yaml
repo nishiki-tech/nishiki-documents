@@ -158,6 +158,23 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Container"
+    delete:
+      summary: Delete a container
+      description: This operation also deletes all foods in the container.
+      tags:
+        - container
+      parameters:
+        - name: containerId
+          in: path
+          description: ID of container
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Deletion complete
+        "403":
+          description: A user tries to delete a container that is not owned by a requesting user.
   /containers/{containerId}/foods:
     post:
       description: add a new food
