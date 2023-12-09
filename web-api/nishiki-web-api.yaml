@@ -58,7 +58,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: get user information
           content:
             application/json:
@@ -372,10 +372,7 @@ paths:
               schema:
                 type: array
                 items:
-                  type: object
-                  properties:
-                    users:
-                      $ref: "#/components/schemas/User"
+                  $ref: "#/components/schemas/User"
   /groups/{groupId}/users/{userId}:
     put:
       tags:
