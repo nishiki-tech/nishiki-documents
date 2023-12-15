@@ -86,7 +86,7 @@ paths:
                   description: user's name
                   type: string
       responses:
-        "202":
+        "204":
           description: update user's information
         "401":
           description: try to change other user's information
@@ -296,7 +296,7 @@ paths:
                   nullable: true
                   example: 1970-01-01T00:00:00.000Z
       responses:
-        "202":
+        "204":
           description: update complete
     delete:
       description: delete a food
@@ -316,7 +316,7 @@ paths:
           schema:
             type: string
       responses:
-        "202":
+        "204":
           description: deletion complete
   /groups:
     get:
@@ -446,7 +446,7 @@ paths:
             type: string
       description: add the target user ID in the path parameter
       responses:
-        "202":
+        "204":
           description: add a user to the group
     delete:
       tags:
@@ -466,7 +466,7 @@ paths:
             type: string
       description: add the target user ID in the path parameter
       responses:
-        "202":
+        "204":
           description: deletion complete
 components:
   schemas:
