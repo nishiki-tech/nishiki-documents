@@ -38,7 +38,6 @@ Sort key is normally, explains the type of data, if the data is about User, the 
 | Key | Attribute |
 |:----|:----------|
 | PK  | GroupId   |
-| SK  | UserId    |
 
 :::info
 
