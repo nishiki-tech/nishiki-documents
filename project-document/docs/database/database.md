@@ -22,17 +22,17 @@ Sort key is normally, explains the type of data, if the data is about User, the 
 
 ### Attributes
 
-| Name                | Type         | Note                                |
-|:--------------------|:-------------|:------------------------------------|
-| UserId              | String       | UUID                                |
-| UserName            | String       |                                     |
-| EMailAddress        | String       |                                     |
-| GroupId             | String       | UUID                                |
-| GroupName           | String       |                                     |
-| LinkExpiredDatetime | String       | ISO 8601 date and time              | 
-| ContainerId         | String       | UUID                                |
-| ContainerName       | String       |                                     |
-| Foods               | List[Object] | [Object Detail](/database#foods)    |
+| Name               | Type         | Note                                |
+|:-------------------|:-------------|:------------------------------------|
+| UserId             | String       | UUID                                |
+| UserName           | String       |                                     |
+| EMailAddress       | String       |                                     |
+| GroupId            | String       | UUID                                |
+| GroupName          | String       |                                     |
+| LinkExpiryDatetime | String       | ISO 8601 date and time              | 
+| ContainerId        | String       | UUID                                |
+| ContainerName      | String       |                                     |
+| Foods              | List[Object] | [Object Detail](/database#foods)    |
 
 ## Global Secondary Index (GSI)
 
@@ -44,7 +44,6 @@ Sort key is normally, explains the type of data, if the data is about User, the 
 | Key | Attribute |
 |:----|:----------|
 | PK  | GroupId   |
-| SK  | UserId    |
 
 :::info
 
@@ -58,10 +57,10 @@ The reason for not having Container and Group relation GSI, similar to User and 
 **GSI Name**: JoinLinkDatetime  
 **Projection Type**: KEY_ONLY
 
-| Key | Attribute           |
-|:----|:--------------------|
-| PK  | GroupId             |
-| SK  | LinkExpiredDatetime |
+| Key | Attribute          |
+|:----|:-------------------|
+| PK  | GroupId            |
+| SK  | LinkExpiryDatetime |
 
 ### EMailUserRelation
 
@@ -93,11 +92,11 @@ The {} means that the value inside it will be dynamic value.
 
 **PK**: Group ID (UUID)
 
-| SK                      | Detail                     | Attributes                   |
-|:------------------------|:---------------------------|:-----------------------------|
-| Group                   | Group Data                 | GroupName, Users             |
-| Container#{ContainerID} | Container Data             | ContainerId                  |
-| ShareLink#{Datetime}    | Join Link Expired Datetime | LinkExpiredDatetime, GroupId |
+| SK                            | Detail                    | Attributes                  |
+|:------------------------------|:--------------------------|:----------------------------|
+| Group                         | Group Data                | GroupName, Users            |
+| Container#{ContainerID}       | Container Data            | ContainerId                 |
+| LinkExpiryDatetime#{Datetime} | Join Link Expiry Datetime | LinkExpiryDatetime, GroupId |
 
 ### Container
 
@@ -135,19 +134,19 @@ Food is the object.
 
 ## Access Pattern
 
-| Access pattern name    | Key (PK/SK)             | How to Access      | Detail                                 | Context   |
-|:-----------------------|:------------------------|:-------------------|:---------------------------------------|:----------|
-| GetUser                | UserId / User           | Get                | Get a single user data                 | User      |
-| GetUserByEMail         | EMailAddress            | Get                | Get a single user data                 | User      |
-| ListOfUsersGroup       | UserId / Group#         | Query              | List of groups user belonging to       | User      |
-| GetGroup               | GroupId / Group         | Get                | Get a group data                       | Group     |
-| ListOfContainers       | GroupId / Container#    | Query              | List of containers belonging to group  | Group     |
-| ListOfUsersInGroup     | GroupId                 | Query against GSI  | List of users belonging to group       | Group     |
-| GetContainer           | ContainerId / Container | Get                | Get a container data                   | Container |
-| ListOfExpiredJoinLinks | None (Datetime)         | Filter against GSI | List of join group links that expired. | Group     |
+| Access pattern name          | Key (PK/SK)             | How to Access      | Detail                                   | Context   |
+|:-----------------------------|:------------------------|:-------------------|:-----------------------------------------|:----------|
+| GetUser                      | UserId / User           | Get                | Get a single user data                   | User      |
+| GetUserByEMail               | EMailAddress            | Get                | Get a single user data                   | User      |
+| ListOfUsersGroup             | UserId / Group#         | Query              | List of groups user belonging to         | User      |
+| GetGroup                     | GroupId / Group         | Get                | Get a group data                         | Group     |
+| ListOfContainers             | GroupId / Container#    | Query              | List of containers belonging to group    | Group     |
+| ListOfUsersInGroup           | GroupId                 | Query against GSI  | List of users belonging to group         | Group     |
+| GetContainer                 | ContainerId / Container | Get                | Get a container data                     | Container |
+| ListOfJoinLinkExpiryDatetime | None (Datetime)         | Filter against GSI | List of join group link expiry Datetime  | Group     |
 
 ### Supplement
 
-* ListOfExpiredJoinLinks
+* ListOfJoinLinkExpiryDatetime
 
-The expired date means before the time of calling this one.
+The expiry date means before the time of calling this one.

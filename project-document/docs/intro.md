@@ -15,7 +15,7 @@ Nishiki manages the inventory of your fridge for both you and your partner.
 
 ## Features
 
-### Manage your refrigerator
+### Manage your fridge
 
 Nishiki not only manages your fridge for you, but it also enables you to share it with your partner, friends, and more.
 You'll no longer need to ask your partner about the food in your fridge or worry about having duplicate food when you buy groceries for a party.
