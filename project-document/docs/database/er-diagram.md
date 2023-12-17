@@ -36,9 +36,9 @@ Food {
 }
 
 ShareLink {
-    string url
     string group_id
-    Datetime expired
+    Datetime expiry_datetime
+    string invitation_link_hash
 }
 
 User || --|{ UserGroup : "one to one or more"
