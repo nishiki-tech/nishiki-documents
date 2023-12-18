@@ -231,6 +231,10 @@ paths:
                   type: string
                   nullable: true
                   example: l
+                category:
+                  type: string
+                  example: Vegetables
+                  nullable: false
                 quantity:
                   type: integer
                   nullable: true
@@ -286,6 +290,10 @@ paths:
                   type: string
                   nullable: true
                   example: l
+                category:
+                  type: string
+                  example: Vegetables
+                  nullable: false                
                 quantity:
                   type: integer
                   nullable: true
@@ -539,6 +547,10 @@ components:
           format: int64
           nullable: true
           example: 1
+        category:
+          type: string
+          example: Vegetables
+          nullable: false
         unit:
           type: string
           nullable: true
