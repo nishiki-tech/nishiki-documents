@@ -8,7 +8,7 @@ The ID style is to be determine
 
 ## Group (Aggregate Root)
 
-The Group is an group including userIds and containerIds.
+The Group is an group including user IDs and container IDs.
 
 ### Group Name
 
@@ -17,8 +17,8 @@ This name can change anytime. it has default name when the group created without
 
 ## User IDs
 
-The group is composed of users. The group class has user ID list. The Group **cannot exist** without any user.
+The group contains users. The group class has user ID list. The Group **cannot exist** without any user.
 
 ## Container IDs
 
-The group is composed of containers. The group class has container ID list. The Group **can exist** without any container.
+The group is able to contains containers. The group class has container ID list. The Group **can exist** without any container.
