@@ -19,7 +19,7 @@ The unit can be changed after setting.
 
 ### Quantity (Value Object)
 
-The quantity must be more than 0.
+The quantity must be null or more than 0.
 The quantity can be the float.  In that case, the effective digit is 2, and less than that is discarded.
 The reason for adopting discarding instead of rounding is to avoid increasing quantity which is an unnatural phenomenon.
 When the quantity is 0 by subtraction, the food is deleted.
