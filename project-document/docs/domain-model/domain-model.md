@@ -61,6 +61,7 @@ classDiagram
         String name
         Unit Unit
         Quantity Quantity
+        String Category
         Expiry Expiry
     }
 

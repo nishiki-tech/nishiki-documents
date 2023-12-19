@@ -4,8 +4,14 @@ This system use DynamoDB.
 
 ## Table Configs
 
-**Table Name**: NishikiTable
+**Table Name**: nishiki-table-prod-db  
 **Deletion Policy**: Retain (In develop environment, Delete)
+
+::: note
+
+In the development environment, the DB name is changed to the `nishiki-table-dev-db`.
+
+:::
 
 ## Table Structure
 
@@ -57,6 +63,15 @@ The reason for not having Container and Group relation GSI, similar to User and 
 |:----|:-------------------|
 | PK  | GSIPlaceHolder     |
 | SK  | LinkExpiryDatetime |
+
+### EMailUserRelation
+
+**GSI Name**: EMailAndUserIdRelationship  
+**Projection Type**: KEY_ONLY
+
+| Key | Attribute      |
+|:----|:---------------|
+| PK  | EMailAddress   |
 
 #### Non Key Attributes
 
@@ -147,6 +162,7 @@ Food is the object.
 | Access pattern name          | Key (PK/SK)             | How to Access      | Detail                                         | Context   |
 |:-----------------------------|:------------------------|:-------------------|:-----------------------------------------------|:----------|
 | GetUser                      | UserId / User           | Get                | Get a single user data                         | User      |
+| GetUserByEMail               | EMailAddress            | Query against GSI  | Get a single user's ID                         | User      |
 | ListOfUsersGroup             | UserId / Group#         | Query              | List of groups user belonging to               | User      |
 | GetGroup                     | GroupId / Group         | Get                | Get a group data                               | Group     |
 | ListOfContainers             | GroupId / Container#    | Query              | List of containers belonging to group          | Group     |
