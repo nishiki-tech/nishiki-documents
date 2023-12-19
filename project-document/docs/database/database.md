@@ -28,6 +28,7 @@ Sort key is normally, explains the type of data, if the data is about User, the 
 | ContainerId        | String       | UUID                                                                                 |
 | ContainerName      | String       |                                                                                      |
 | Foods              | List[Object] | [Object Detail](/database#foods)                                                     | 
+| GSIPlaceHolder     | String       | Place holder for the GSI                                                             |
 
 ## Global Secondary Index (GSI)
 
@@ -50,12 +51,22 @@ The reason for not having Container and Group relation GSI, similar to User and 
 ### InvitationLinkExpiryDatetime
 
 **GSI Name**: InvitationLinkExpiryDatetime  
-**Projection Type**: KEY_ONLY
+**Projection Type**: INCLUDE
 
-| Key | Attribute                       |
-|:----|:--------------------------------|
-| PK  | LinkExpiryDatetime              |
-| SK  | Invitation#{InvitationLinkHash} |
+| Key | Attribute          |
+|:----|:-------------------|
+| PK  | GSIPlaceHolder     |
+| SK  | LinkExpiryDatetime |
+
+#### Non Key Attributes
+
+* InvitationLinkHash
+
+::: note
+
+This GSI's PK is "ExpiryDatetime". Used for querying the expired Datetime.
+
+:::
 
 ### InvitationHash
 
