@@ -31,6 +31,7 @@ Food {
     string container_id
     string unit
     int quantity
+    string category
     Datetime expiry
     Datetime created_datetime
 }
