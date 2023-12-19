@@ -22,17 +22,19 @@ Sort key is normally, explains the type of data, if the data is about User, the 
 
 ### Attributes
 
-| Name               | Type         | Note                                |
-|:-------------------|:-------------|:------------------------------------|
-| UserId             | String       | UUID                                |
-| UserName           | String       |                                     |
-| EMailAddress       | String       |                                     |
-| GroupId            | String       | UUID                                |
-| GroupName          | String       |                                     |
-| LinkExpiryDatetime | String       | ISO 8601 date and time              | 
-| ContainerId        | String       | UUID                                |
-| ContainerName      | String       |                                     |
-| Foods              | List[Object] | [Object Detail](/database#foods)    |
+| Name               | Type         | Note                                                                                 |
+|:-------------------|:-------------|:-------------------------------------------------------------------------------------|
+| UserId             | String       | UUID                                                                                 |
+| UserName           | String       |                                                                                      |
+| EMailAddress       | String       |                                                                                      |
+| GroupId            | String       | UUID                                                                                 |
+| GroupName          | String       |                                                                                      |
+| LinkExpiryDatetime | String       | ISO 8601 date and time                                                               | 
+| InvitationLinkHash | String       | This hash is generated from the Group ID and Expiry Datetime using the MD5 algorithm |
+| ContainerId        | String       | UUID                                                                                 |
+| ContainerName      | String       |                                                                                      |
+| Foods              | List[Object] | [Object Detail](/database#foods)                                                     | 
+| GSIPlaceHolder     | String       | Place holder for the GSI                                                             |
 
 ## Global Secondary Index (GSI)
 
@@ -52,14 +54,14 @@ The reason for not having Container and Group relation GSI, similar to User and 
 
 :::
 
-### JoinLink
+### InvitationLinkExpiryDatetime
 
-**GSI Name**: JoinLinkDatetime  
-**Projection Type**: KEY_ONLY
+**GSI Name**: InvitationLinkExpiryDatetime  
+**Projection Type**: INCLUDE
 
 | Key | Attribute          |
 |:----|:-------------------|
-| PK  | GroupId            |
+| PK  | GSIPlaceHolder     |
 | SK  | LinkExpiryDatetime |
 
 ### EMailUserRelation
@@ -70,6 +72,29 @@ The reason for not having Container and Group relation GSI, similar to User and 
 | Key | Attribute      |
 |:----|:---------------|
 | PK  | EMailAddress   |
+
+#### Non Key Attributes
+
+* InvitationLinkHash
+
+::: note
+
+This GSI's PK is "ExpiryDatetime". Used for querying the expired Datetime.
+
+:::
+
+### InvitationHash
+
+**GSI Name**: InvitationHash  
+**Projection Type**: INCLUDE
+
+| Key | Attribute          |
+|:----|:-------------------|
+| PK  | InvitationLinkHash |
+
+#### Non Key Attributes
+
+* LinkExpiryDatetime
 
 ## Contexts
 
@@ -92,11 +117,11 @@ The {} means that the value inside it will be dynamic value.
 
 **PK**: Group ID (UUID)
 
-| SK                            | Detail                    | Attributes                  |
-|:------------------------------|:--------------------------|:----------------------------|
-| Group                         | Group Data                | GroupName, Users            |
-| Container#{ContainerID}       | Container Data            | ContainerId                 |
-| LinkExpiryDatetime#{Datetime} | Join Link Expiry Datetime | LinkExpiryDatetime, GroupId |
+| SK                              | Detail                        | Attributes                               |
+|:--------------------------------|:------------------------------|:-----------------------------------------|
+| Group                           | Group Data                    | GroupName, Users                         |
+| Container#{ContainerID}         | Container Data                | ContainerId                              |
+| Invitation#{InvitationLinkHash} | Invitation link's hash string | LinkExpiryDatetime, InvitationLinkHash   |
 
 ### Container
 
@@ -134,19 +159,21 @@ Food is the object.
 
 ## Access Pattern
 
-| Access pattern name          | Key (PK/SK)             | How to Access      | Detail                                  | Context   |
-|:-----------------------------|:------------------------|:-------------------|:----------------------------------------|:----------|
-| GetUser                      | UserId / User           | Get                | Get a single user data                  | User      |
-| GetUserByEMail               | EMailAddress            | Query against GSI  | Get a single user's ID                  | User      |
-| ListOfUsersGroup             | UserId / Group#         | Query              | List of groups user belonging to        | User      |
-| GetGroup                     | GroupId / Group         | Get                | Get a group data                        | Group     |
-| ListOfContainers             | GroupId / Container#    | Query              | List of containers belonging to group   | Group     |
-| ListOfUsersInGroup           | GroupId                 | Query against GSI  | List of users belonging to group        | Group     |
-| GetContainer                 | ContainerId / Container | Get                | Get a container data                    | Container |
-| ListOfJoinLinkExpiryDatetime | None (Datetime)         | Filter against GSI | List of join group link expiry Datetime | Group     |
+| Access pattern name          | Key (PK/SK)             | How to Access      | Detail                                         | Context   |
+|:-----------------------------|:------------------------|:-------------------|:-----------------------------------------------|:----------|
+| GetUser                      | UserId / User           | Get                | Get a single user data                         | User      |
+| GetUserByEMail               | EMailAddress            | Query against GSI  | Get a single user's ID                         | User      |
+| ListOfUsersGroup             | UserId / Group#         | Query              | List of groups user belonging to               | User      |
+| GetGroup                     | GroupId / Group         | Get                | Get a group data                               | Group     |
+| ListOfContainers             | GroupId / Container#    | Query              | List of containers belonging to group          | Group     |
+| ListOfUsersInGroup           | GroupId                 | Query against GSI  | List of users belonging to group               | Group     |
+| GetContainer                 | ContainerId / Container | Get                | Get a container data                           | Container |
+| GetInvitationLink            | InvitationHash          | Get                | Get an invitation link and related information | Group     |
+| GetInvitationLinkByGroupId   | GroupId                 | Query              | Get an invitation hash from the group ID       | Group     |
+| ListOfExpiredInvitationLink  | None (Datetime)         | Filter against GSI | List of join group link expiry Datetime        | Group     |
 
 ### Supplement
 
-* ListOfJoinLinkExpiryDatetime
+* ListOfExpiredInvitationLink
 
 The expiry date means before the time of calling this one.
