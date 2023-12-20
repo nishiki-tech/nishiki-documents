@@ -508,20 +508,73 @@ components:
         name:
           type: string
           nullable: false
-          example: container1
-        group:
+          example: Shared-house's Fridge
+        groupId:
           type: string
           nullable: false
-          example: groupId
+          example: c3a8df3e-a520-c2cb-1be7-d90710691861
         groupName:
           type: string
           nullable: false
-          example: groupName
+          example: Shared-house
         foods:
           type: array
           nullable: false
           items:
-            $ref: "#/components/schemas/Food"
+            - $ref: '#/components/schemas/Food'
+            - $ref: '#/components/schemas/Food2'
+    Container2:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: false
+          format: uuid
+          example: 41de81a0-8349-0bf9-0b74-32b143738093
+        name:
+          type: string
+          nullable: false
+          example: Family's Fridge
+        groupId:
+          type: string
+          nullable: false
+          example: 0c6ff0b5-384f-7cc1-ce00-e70b18a9fedd
+        groupName:
+          type: string
+          nullable: false
+          example: Family
+        foods:
+          type: array
+          nullable: false
+          items:
+            - $ref: "#/components/schemas/Food3"
+            - $ref: "#/components/schemas/Food4"
+    Container3:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: false
+          format: uuid
+          example: a845d210-18fe-a765-ef30-99a724fea563
+        name:
+          type: string
+          nullable: false
+          example: Camping Container
+        groupId:
+          type: string
+          nullable: false
+          example: 029bc90e-4dde-0de2-47c0-8c0b65d6b14e
+        groupName:
+          type: string
+          nullable: false
+          example: Family
+        foods:
+          type: array
+          nullable: false
+          items:
+            - $ref: "#/components/schemas/Food5"
+            - $ref: "#/components/schemas/Food6"
     Group:
       type: object
       properties:
@@ -569,3 +622,178 @@ components:
           nullable: true
           format: date-time
           example: 2023-12-01T00:00:00.000Z
+    Food2:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 8db72f33-f99a-462b-89da-4afe20212052
+          format: uuid
+          nullable: false
+        name:
+          type: string
+          example: tomato
+          nullable: false
+        quantity:
+          type: integer
+          format: int64
+          nullable: true
+          example: 3
+        category:
+          type: string
+          example: Vegetables
+          nullable: false
+        unit:
+          type: string
+          nullable: true
+          example: kg
+        expiry:
+          type: string
+          nullable: true
+          format: date-time
+          example: 2023-12-10T00:00:00.000Z
+        createdAt:
+          type: string
+          nullable: true
+          format: date-time
+          example: 2023-12-03T00:00:00.000Z
+    Food3:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 073c1363-7aef-1c72-9015-973b5cc4b7da
+          format: uuid
+          nullable: false
+        name:
+          type: string
+          example: onion
+          nullable: false
+        quantity:
+          type: integer
+          format: int64
+          nullable: true
+          example: 4
+        category:
+          type: string
+          example: Vegetables
+          nullable: false
+        unit:
+          type: string
+          nullable: true
+          example: 
+        expiry:
+          type: string
+          nullable: true
+          format: date-time
+          example: 2023-12-20T00:00:00.000Z
+        createdAt:
+          type: string
+          nullable: true
+          format: date-time
+          example: 2023-12-12T00:00:00.000Z
+    Food4:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 3c740136-58b7-4c3d-9548-fc0a4d3b3ef4
+          format: uuid
+          nullable: false
+        name:
+          type: string
+          example: chicken thigh
+          nullable: false
+        quantity:
+          type: integer
+          format: int64
+          nullable: true
+          example: 500
+        category:
+          type: string
+          example: Vegetables
+          nullable: false
+        unit:
+          type: string
+          nullable: true
+          example: g
+        expiry:
+          type: string
+          nullable: true
+          format: date-time
+          example: 2023-12-01T00:00:00.000Z
+        createdAt:
+          type: string
+          nullable: true
+          format: date-time
+          example: 2023-11-15T00:00:00.000Z
+    Food5:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 42fa7f8e-2d2b-0f06-d23f-b319d810c0a5
+          format: uuid
+          nullable: false
+        name:
+          type: string
+          example: Beef steak
+          nullable: false
+        quantity:
+          type: integer
+          format: int64
+          nullable: true
+          example: 700
+        category:
+          type: string
+          example: Meat
+          nullable: false
+        unit:
+          type: string
+          nullable: true
+          example: g
+        expiry:
+          type: string
+          nullable: true
+          format: date-time
+          example: 2023-12-15T00:00:00.000Z
+        createdAt:
+          type: string
+          nullable: true
+          format: date-time
+          example: 2023-12-01T00:00:00.000Z
+    Food6:
+      type: object
+      properties:
+        id:
+          type: string
+          example: e568295b-f196-860f-dcbf-5712faec5e8c
+          format: uuid
+          nullable: false
+        name:
+          type: string
+          example: Beer
+          nullable: false
+        quantity:
+          type: integer
+          format: int64
+          nullable: true
+          example: 10
+        category:
+          type: string
+          example: Beverage
+          nullable: false
+        unit:
+          type: string
+          nullable: true
+          example: can
+        expiry:
+          type: string
+          nullable: true
+          format: date-time
+          example: 2023-03-15T00:00:00.000Z
+        createdAt:
+          type: string
+          nullable: true
+          format: date-time
+          example: 2024-12-15T00:00:00.000Z
