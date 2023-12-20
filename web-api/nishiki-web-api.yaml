@@ -573,7 +573,7 @@ components:
           items:
             $ref: '#/components/schemas/FoodItem'
     ContainerItem:
-      oneOf:
+      allOf:
         - $ref: '#/components/schemas/Container'
         - $ref: '#/components/schemas/Container2'      
         - $ref: '#/components/schemas/Container3'      
@@ -800,7 +800,7 @@ components:
           format: date-time
           example: 2024-12-15T00:00:00.000Z
     FoodItem:
-      oneOf:
+      allOf:
         - $ref: '#/components/schemas/Food'
         - $ref: '#/components/schemas/Food2'
         - $ref: '#/components/schemas/Food3'
