@@ -563,4 +563,9 @@ components:
           type: string
           nullable: true
           format: date-time
-          example: 1970-01-01T00:00:00.000Z
+          example: 2023-12-15T00:00:00.000Z
+        createdAt:
+          type: string
+          nullable: true
+          format: date-time
+          example: 2023-12-01T00:00:00.000Z
