@@ -64,7 +64,7 @@ This index is used for the access pattern of retrieving a list of users by the G
 
 :::info
 
-This index is used for the access pattern of retrieving a GroupId by the Container ID.
+This index is used for the access pattern of retrieving a Group ID by the Container ID.
 
 :::
 
