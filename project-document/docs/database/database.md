@@ -50,7 +50,21 @@ Sort key is normally, explains the type of data, if the data is about User, the 
 :::info
 
 This index is used for the access pattern of retrieving a list of users by the Group ID.
-The reason for not having Container and Group relation GSI, similar to User and Group relation, is that there are few chances to query groups by the container.
+
+:::
+
+### GroupAndContainerRelationship
+
+**GSI Name**: GroupAndContainerRelationship  
+**Projection Type**: KEY_ONLY
+
+| Key | Attribute |
+|:----|:----------|
+| PK  | ContainerId   |
+
+:::info
+
+This index is used for the access pattern of retrieving a GroupId by the Container ID.
 
 :::
 
@@ -165,6 +179,7 @@ Food is the object.
 | GetUserByEMail               | EMailAddress            | Query against GSI  | Get a single user's ID                         | User      |
 | ListOfUsersGroup             | UserId / Group#         | Query              | List of groups user belonging to               | User      |
 | GetGroup                     | GroupId / Group         | Get                | Get a group data                               | Group     |
+| GetGroup                     | ContainerId             | Query against GSI  | Get data of a group a container belonging to   | Group     |
 | ListOfContainers             | GroupId / Container#    | Query              | List of containers belonging to group          | Group     |
 | ListOfUsersInGroup           | GroupId                 | Query against GSI  | List of users belonging to group               | Group     |
 | GetContainer                 | ContainerId / Container | Get                | Get a container data                           | Container |
