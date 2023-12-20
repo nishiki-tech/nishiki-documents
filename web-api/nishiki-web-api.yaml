@@ -513,6 +513,10 @@ components:
           type: string
           nullable: false
           example: groupId
+        groupName:
+          type: string
+          nullable: false
+          example: groupName
         foods:
           type: array
           nullable: false
