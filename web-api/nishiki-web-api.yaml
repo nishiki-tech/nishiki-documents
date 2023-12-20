@@ -107,7 +107,7 @@ paths:
                   containers:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Container"
+                      $ref: "#/components/schemas/ContainerItem"
     post:
       description: create a new container
       tags:
@@ -521,8 +521,7 @@ components:
           type: array
           nullable: false
           items:
-            - $ref: '#/components/schemas/Food'
-            - $ref: '#/components/schemas/Food2'
+            $ref: '#/components/schemas/FoodItem'
     Container2:
       type: object
       properties:
@@ -547,8 +546,7 @@ components:
           type: array
           nullable: false
           items:
-            - $ref: "#/components/schemas/Food3"
-            - $ref: "#/components/schemas/Food4"
+            $ref: '#/components/schemas/FoodItem'
     Container3:
       type: object
       properties:
@@ -573,8 +571,12 @@ components:
           type: array
           nullable: false
           items:
-            - $ref: "#/components/schemas/Food5"
-            - $ref: "#/components/schemas/Food6"
+            $ref: '#/components/schemas/FoodItem'
+    ContainerItem:
+      oneOf:
+        - $ref: '#/components/schemas/Container'
+        - $ref: '#/components/schemas/Container2'      
+        - $ref: '#/components/schemas/Container3'      
     Group:
       type: object
       properties:
@@ -797,3 +799,11 @@ components:
           nullable: true
           format: date-time
           example: 2024-12-15T00:00:00.000Z
+    FoodItem:
+      oneOf:
+        - $ref: '#/components/schemas/Food'
+        - $ref: '#/components/schemas/Food2'
+        - $ref: '#/components/schemas/Food3'
+        - $ref: '#/components/schemas/Food4'
+        - $ref: '#/components/schemas/Food5'
+        - $ref: '#/components/schemas/Food6'
