@@ -7,7 +7,7 @@ This system use DynamoDB.
 **Table Name**: nishiki-table-prod-db  
 **Deletion Policy**: Retain (In develop environment, Delete)
 
-::: note
+:::note
 
 In the development environment, the DB name is changed to the `nishiki-table-dev-db`.
 
@@ -34,7 +34,6 @@ Sort key is normally, explains the type of data, if the data is about User, the 
 | ContainerId        | String       | UUID                                                                                 |
 | ContainerName      | String       |                                                                                      |
 | Foods              | List[Object] | [Object Detail](/database#foods)                                                     | 
-| GSIPlaceHolder     | String       | Place holder for the GSI                                                             |
 
 ## Global Secondary Index (GSI)
 
@@ -68,16 +67,6 @@ This index is used for the access pattern of retrieving a Group ID by the Contai
 
 :::
 
-### InvitationLinkExpiryDatetime
-
-**GSI Name**: InvitationLinkExpiryDatetime  
-**Projection Type**: INCLUDE
-
-| Key | Attribute          |
-|:----|:-------------------|
-| PK  | GSIPlaceHolder     |
-| SK  | LinkExpiryDatetime |
-
 ### EMailUserRelation
 
 **GSI Name**: EMailAndUserIdRelationship  
@@ -91,7 +80,7 @@ This index is used for the access pattern of retrieving a Group ID by the Contai
 
 * InvitationLinkHash
 
-::: note
+:::note
 
 This GSI's PK is "ExpiryDatetime". Used for querying the expired Datetime.
 
@@ -131,11 +120,11 @@ The {} means that the value inside it will be dynamic value.
 
 **PK**: Group ID (UUID)
 
-| SK                              | Detail                        | Attributes                               |
-|:--------------------------------|:------------------------------|:-----------------------------------------|
-| Group                           | Group Data                    | GroupName, Users                         |
-| Container#{ContainerID}         | Container Data                | ContainerId                              |
-| Invitation#{InvitationLinkHash} | Invitation link's hash string | LinkExpiryDatetime, InvitationLinkHash   |
+| SK                      | Detail                        | Attributes                               |
+|:------------------------|:------------------------------|:-----------------------------------------|
+| Group                   | Group Data                    | GroupName, Users                         |
+| Container#{ContainerID} | Container Data                | ContainerId                              |
+| InvitationLinkHash      | Invitation link's hash string | LinkExpiryDatetime, InvitationLinkHash   |
 
 ### Container
 
@@ -173,22 +162,15 @@ Food is the object.
 
 ## Access Pattern
 
-| Access pattern name          | Key (PK/SK)             | How to Access      | Detail                                         | Context   |
-|:-----------------------------|:------------------------|:-------------------|:-----------------------------------------------|:----------|
-| GetUser                      | UserId / User           | Get                | Get a single user data                         | User      |
-| GetUserByEMail               | EMailAddress            | Query against GSI  | Get a single user's ID                         | User      |
-| ListOfUsersGroup             | UserId / Group#         | Query              | List of groups user belonging to               | User      |
-| GetGroup                     | GroupId / Group         | Get                | Get a group data                               | Group     |
-| GetGroup                     | ContainerId             | Query against GSI  | Get data of a group a container belonging to   | Group     |
-| ListOfContainers             | GroupId / Container#    | Query              | List of containers belonging to group          | Group     |
-| ListOfUsersInGroup           | GroupId                 | Query against GSI  | List of users belonging to group               | Group     |
-| GetContainer                 | ContainerId / Container | Get                | Get a container data                           | Container |
-| GetInvitationLink            | InvitationHash          | Get                | Get an invitation link and related information | Group     |
-| GetInvitationLinkByGroupId   | GroupId                 | Query              | Get an invitation hash from the group ID       | Group     |
-| ListOfExpiredInvitationLink  | None (Datetime)         | Filter against GSI | List of join group link expiry Datetime        | Group     |
-
-### Supplement
-
-* ListOfExpiredInvitationLink
-
-The expiry date means before the time of calling this one.
+| Access pattern name          | Key (PK/SK)             | How to Access     | Detail                                         | Context   |
+|:-----------------------------|:------------------------|:------------------|:-----------------------------------------------|:----------|
+| GetUser                      | UserId / User           | Get               | Get a single user data                         | User      |
+| GetUserByEMail               | EMailAddress            | Query against GSI | Get a single user's ID                         | User      |
+| ListOfUsersGroup             | UserId / Group#         | Query             | List of groups user belonging to               | User      |
+| GetGroup                     | GroupId / Group         | Get               | Get a group data                               | Group     |
+| GetGroup                     | ContainerId             | Query against GSI | Get data of a group a container belonging to   | Group     |
+| ListOfContainers             | GroupId / Container#    | Query             | List of containers belonging to group          | Group     |
+| ListOfUsersInGroup           | GroupId                 | Query against GSI | List of users belonging to group               | Group     |
+| GetContainer                 | ContainerId / Container | Get               | Get a container data                           | Container |
+| GetInvitationLink            | InvitationHash          | Query against GSI | Get an invitation link and related information | Group     |
+| GetInvitationLinkByGroupId   | GroupId                 | Get               | Get an invitation hash from the group ID       | Group     |
