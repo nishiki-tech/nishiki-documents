@@ -107,7 +107,7 @@ paths:
                   containers:
                     type: array
                     items:
-                      $ref: "#/components/schemas/ContainerItem"
+                      $ref: "#/components/schemas/Container"
     post:
       description: create a new container
       tags:
@@ -521,7 +521,22 @@ components:
           type: array
           nullable: false
           items:
-            $ref: '#/components/schemas/FoodItem'
+            $ref: '#/components/schemas/Food'
+          example:
+            - id: 11111111-58b7-4c3d-9548-fc0a4d3b3ef4
+              name: example1
+              quantity: 1
+              category: Vegetables
+              unit: kg
+              expiry: 2023-12-15T00:00:00.000Z
+              createdAt: 2023-12-01T00:00:00.000Z
+            - id: 22222222-58b7-4c3d-9548-fc0a4d3b3ef4
+              name: example2
+              quantity: 1
+              category: Vegetables
+              unit: kg
+              expiry: 2023-12-15T00:00:00.000Z
+              createdAt: 2023-12-01T00:00:00.000Z          
     Container2:
       type: object
       properties:
