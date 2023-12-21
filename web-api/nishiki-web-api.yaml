@@ -286,7 +286,11 @@ paths:
             schema:
               type: object
               required:
-                - "name"
+                - name
+                - unit
+                - category
+                - quantity
+                - expiry
               properties:
                 name:
                   type: string
@@ -346,6 +350,10 @@ paths:
               type: object
               required:
                 - name
+                - unit
+                - category
+                - quantity
+                - expiry
               properties:
                 name:
                   type: string
