@@ -108,6 +108,45 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Container"
+                    example:
+                      - id: 11111111-ee7b-4558-b8d5-371514e77bed
+                        name: Shared-house's Fridge
+                        groupId: c3a8df3e-a520-c2cb-1be7-d90710691861
+                        groupName: Shared-house                      
+                        foods:
+                          - id: 11111111-58b7-4c3d-9548-fc0a4d3b3ef4
+                            name: example1
+                            quantity: 1
+                            category: Vegetables
+                            unit: kg
+                            expiry: 2023-12-15T00:00:00.000Z
+                            createdAt: 2023-12-01T00:00:00.000Z
+                          - id: 22222222-58b7-4c3d-9548-fc0a4d3b3ef4
+                            name: example2
+                            quantity: 1
+                            category: Vegetables
+                            unit: kg
+                            expiry: 2023-12-15T00:00:00.000Z
+                            createdAt: 2023-12-01T00:00:00.000Z                          
+                      - id: 22222222-ee7b-4558-b8d5-371514e77bed
+                        name: Shared-house's Fridge
+                        groupId: c3a8df3e-a520-c2cb-1be7-d90710691861
+                        groupName: Shared-house                      
+                        foods:
+                          - id: 33333333-58b7-4c3d-9548-fc0a4d3b3ef4
+                            name: example3
+                            quantity: 1
+                            category: Vegetables
+                            unit: kg
+                            expiry: 2023-12-15T00:00:00.000Z
+                            createdAt: 2023-12-01T00:00:00.000Z
+                          - id: 44444444-58b7-4c3d-9548-fc0a4d3b3ef4
+                            name: example4
+                            quantity: 1
+                            category: Vegetables
+                            unit: kg
+                            expiry: 2023-12-15T00:00:00.000Z
+                            createdAt: 2023-12-01T00:00:00.000Z   
     post:
       description: create a new container
       tags:
