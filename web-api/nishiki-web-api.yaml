@@ -108,6 +108,71 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Container"
+                    example:
+                      - id: 11111111-ee7b-4558-b8d5-371514e77bed
+                        name: Shared-house's Fridge
+                        groupId: a3kdifut-a520-c2cb-1be7-d90710691861
+                        groupName: Shared-house
+                        foods:
+                          - id: 11111111-58b7-4c3d-9548-fc0a4d3b3ef4
+                            name: arugula
+                            quantity: 500
+                            category: vegetables
+                            unit: g
+                            expiry: 2023-12-10T00:00:00.000Z
+                            createdAt: 2023-12-01T00:00:00.000Z
+                          - id: 22222222-58b7-4c3d-9548-fc0a4d3b3ef4
+                            name: tomato
+                            quantity: 5
+                            category: vegetables
+                            unit:
+                            expiry: 2023-12-25T00:00:00.000Z
+                            createdAt: 2023-12-04T00:00:00.000Z                          
+                      - id: 22222222-ee7b-4558-b8d5-371514e77bed
+                        name: Family's Fridge
+                        groupId: c3a8df3e-a520-c2cb-1be7-d90710691861
+                        groupName: Tom's family
+                        foods:
+                          - id: 33333333-58b7-4c3d-9548-fc0a4d3b3ef4
+                            name: onion
+                            quantity: 3
+                            category: vegetables
+                            unit:
+                            expiry: 2023-12-15T00:00:00.000Z
+                            createdAt: 2023-12-01T00:00:00.000Z
+                          - id: 44444444-58b7-4c3d-9548-fc0a4d3b3ef4
+                            name: chicken thigh
+                            quantity: 0.5
+                            category: meat
+                            unit: kg
+                            expiry: 2023-12-15T00:00:00.000Z
+                            createdAt: 2023-12-01T00:00:00.000Z   
+                      - id: 33333333-ee7b-4558-b8d5-371514e77bed
+                        name: Camping Fridge
+                        groupId: c3a8df3e-a520-c2cb-1be7-d90710691861
+                        groupName: Tom's family
+                        foods:
+                          - id: 55555555-58b7-4c3d-9548-fc0a4d3b3ef4
+                            name: Beef steak
+                            quantity: 700
+                            category: meat
+                            unit: g
+                            expiry: 2023-12-20T00:00:00.000Z
+                            createdAt: 2023-12-03T00:00:00.000Z
+                          - id: 66666666-58b7-4c3d-9548-fc0a4d3b3ef4
+                            name: Beer
+                            quantity: 10
+                            category: beverage
+                            unit: can
+                            expiry: 2024-03-15T00:00:00.000Z
+                            createdAt: 2023-12-01T00:00:00.000Z   
+                          - id: 77777777-58b7-4c3d-9548-fc0a4d3b3ef4
+                            name: Red Wine 
+                            quantity: 3
+                            category: beverage
+                            unit: bottle
+                            expiry: 2024-06-15T00:00:00.000Z
+                            createdAt: 2023-12-03T00:00:00.000Z   
     post:
       description: create a new container
       tags:
@@ -357,7 +422,7 @@ paths:
                 groupName:
                   type: string
                   nullable: true
-                  example: group1
+                  example: Shared-house
       responses:
         "201":
           description: generated group ID
@@ -368,7 +433,7 @@ paths:
                 properties:
                   groupId:
                     type: string
-                    example: group1
+                    example: d4825cf5-0b1b-dce3-1aa1-ed9adfd6b0bd
   /groups/{groupId}:
     get:
       description: Get a group
@@ -508,20 +573,20 @@ components:
         name:
           type: string
           nullable: false
-          example: container1
-        group:
+          example: Shared-house's Fridge
+        groupId:
           type: string
           nullable: false
-          example: groupId
+          example: os84jdu7-a520-c2cb-1be7-d90710691861
         groupName:
           type: string
           nullable: false
-          example: groupName
+          example: Shared-house
         foods:
           type: array
           nullable: false
-          items:
-            $ref: "#/components/schemas/Food"
+          items:     
+            $ref: "#/components/schemas/Food"  
     Group:
       type: object
       properties:
@@ -533,7 +598,7 @@ components:
         groupName:
           type: string
           nullable: false
-          example: group1
+          example: Shared-house
     Food:
       type: object
       properties:
