@@ -57,9 +57,9 @@ This index is used for the access pattern of retrieving a list of users by the G
 **GSI Name**: GroupAndContainerRelationship  
 **Projection Type**: KEY_ONLY
 
-| Key | Attribute |
-|:----|:----------|
-| PK  | ContainerId   |
+| Key | Attribute   |
+|:----|:------------|
+| PK  | ContainerId |
 
 :::info
 
@@ -162,15 +162,16 @@ Food is the object.
 
 ## Access Pattern
 
-| Access pattern name          | Key (PK/SK)             | How to Access     | Detail                                         | Context   |
-|:-----------------------------|:------------------------|:------------------|:-----------------------------------------------|:----------|
-| GetUser                      | UserId / User           | Get               | Get a single user data                         | User      |
-| GetUserByEMail               | EMailAddress            | Query against GSI | Get a single user's ID                         | User      |
-| ListOfUsersGroup             | UserId / Group#         | Query             | List of groups user belonging to               | User      |
-| GetGroup                     | GroupId / Group         | Get               | Get a group data                               | Group     |
-| GetGroup                     | ContainerId             | Query against GSI | Get data of a group a container belonging to   | Group     |
-| ListOfContainers             | GroupId / Container#    | Query             | List of containers belonging to group          | Group     |
-| ListOfUsersInGroup           | GroupId                 | Query against GSI | List of users belonging to group               | Group     |
-| GetContainer                 | ContainerId / Container | Get               | Get a container data                           | Container |
-| GetInvitationLink            | InvitationHash          | Query against GSI | Get an invitation link and related information | Group     |
-| GetInvitationLinkByGroupId   | GroupId                 | Get               | Get an invitation hash from the group ID       | Group     |
+| Access pattern name          | Key (PK/SK)              | How to Access     | Detail                                         | Context                   |
+|:-----------------------------|:-------------------------|:------------------|:-----------------------------------------------|:--------------------------|
+| GetUser                      | UserId / User            | Get               | Get a single user data                         | User                      |
+| GetUser                      | UserId / Group#{GroupId} | Get               | Check user's existence. return boolean.        | Boolean (Primitive value) |
+| GetUserByEMail               | EMailAddress             | Query against GSI | Get a single user's ID                         | User                      |
+| ListOfUsersGroup             | UserId / Group#          | Query             | List of groups user belonging to               | User                      |
+| GetGroup                     | GroupId / Group          | Get               | Get a group data                               | Group                     |
+| GetGroup                     | ContainerId              | Query against GSI | Get data of a group a container belonging to   | Group                     |
+| ListOfContainers             | GroupId / Container#     | Query             | List of containers belonging to group          | Group                     |
+| ListOfUsersInGroup           | GroupId                  | Query against GSI | List of users belonging to group               | Group                     |
+| GetContainer                 | ContainerId / Container  | Get               | Get a container data                           | Container                 |
+| GetInvitationLink            | InvitationHash           | Query against GSI | Get an invitation link and related information | Group                     |
+| GetInvitationLinkByGroupId   | GroupId                  | Get               | Get an invitation hash from the group ID       | Group                     |
