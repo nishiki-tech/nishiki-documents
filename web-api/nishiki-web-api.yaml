@@ -111,8 +111,9 @@ paths:
                     example:
                       - id: 11111111-ee7b-4558-b8d5-371514e77bed
                         name: Shared-house's Fridge
-                        groupId: a3kdifut-a520-c2cb-1be7-d90710691861
-                        groupName: Shared-house
+                        group:
+                            groupId: a3kdifut-a520-c2cb-1be7-d90710691861
+                            groupName: Shared-house
                         foods:
                           - id: 11111111-58b7-4c3d-9548-fc0a4d3b3ef4
                             name: arugula
@@ -130,8 +131,9 @@ paths:
                             createdAt: 2023-12-04T00:00:00.000Z                          
                       - id: 22222222-ee7b-4558-b8d5-371514e77bed
                         name: Family's Fridge
-                        groupId: c3a8df3e-a520-c2cb-1be7-d90710691861
-                        groupName: Tom's family
+                        group:
+                            groupId: c3a8df3e-a520-c2cb-1be7-d90710691861
+                            groupName: Tom's family
                         foods:
                           - id: 33333333-58b7-4c3d-9548-fc0a4d3b3ef4
                             name: onion
@@ -149,8 +151,9 @@ paths:
                             createdAt: 2023-12-01T00:00:00.000Z   
                       - id: 33333333-ee7b-4558-b8d5-371514e77bed
                         name: Camping Fridge
-                        groupId: c3a8df3e-a520-c2cb-1be7-d90710691861
-                        groupName: Tom's family
+                        group:
+                            groupId: c3a8df3e-a520-c2cb-1be7-d90710691861
+                            groupName: Tom's family
                         foods:
                           - id: 55555555-58b7-4c3d-9548-fc0a4d3b3ef4
                             name: Beef steak
@@ -582,14 +585,13 @@ components:
           type: string
           nullable: false
           example: Shared-house's Fridge
-        groupId:
-          type: string
-          nullable: false
-          example: os84jdu7-a520-c2cb-1be7-d90710691861
-        groupName:
-          type: string
-          nullable: false
-          example: Shared-house
+        group:
+          type: object
+          items:
+            $ref: "#/components/schemas/Group"  
+          example:
+            groupId: a3kdifut-a520-c2cb-1be7-d90710691861
+            groupName: Shared-house
         foods:
           type: array
           nullable: false
