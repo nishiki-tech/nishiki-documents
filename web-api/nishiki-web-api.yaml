@@ -511,6 +511,15 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/User"
+                    example:
+                      - id: 11111111-ee7b-4558-b8d5-371514e77bed
+                        name: James Smith
+                      - id: 22222222-ee7b-4558-b8d5-371514e77bed
+                        name: Emma Brown
+                      - id: 33333333-ee7b-4558-b8d5-371514e77bed
+                        name: Michael Johnson              
+                      - id: 44444444-ee7b-4558-b8d5-371514e77bed
+                        name: Sophia Thompson
   /groups/{groupId}/users/{userId}:
     put:
       tags:
