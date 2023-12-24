@@ -151,7 +151,7 @@ Food is the object.
 ```object
 {
     FoodId: string (UUID),
-    Name: String | null,
+    Name: String,
     Unit: String | null,
     Quantity: Number | null,
     Category: String | null,
