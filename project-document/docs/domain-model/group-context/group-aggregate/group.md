@@ -10,8 +10,8 @@ The Group is an group including user IDs and container IDs.
 
 ### Group Name
 
-The group can set a groupName as they like. It must be less than equal to 255 letters and greater than equal to 1.
-This name can change anytime. it has default name when the group created without specifying the name.
+The group can set a group name as they like. It must be less than equal to 255 letters and greater than equal to 1.
+This name can change anytime. The group has the default name when the group created without specifying the name.
 
 ## User IDs
 
