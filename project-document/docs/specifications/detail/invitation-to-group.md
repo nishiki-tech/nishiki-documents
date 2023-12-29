@@ -10,7 +10,7 @@ The invitation to a group is enabled by sharing an invitation link.
 2. The user shares this link with other users using suitable method.
 3. When a user receives the invitation link and click on it, then they can join the group.
 
-## Invitation link
+## Invitation Link Specification
 
 The invitation link's specification is the following:
 
