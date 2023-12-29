@@ -628,26 +628,6 @@ paths:
                       - id: 44444444-ee7b-4558-b8d5-371514e77bed
                         name: Sophia Thompson
   /groups/{groupId}/users/{userId}:
-    put:
-      tags:
-        - group
-      parameters:
-        - name: groupId
-          in: path
-          description: ID of group
-          required: true
-          schema:
-            type: string
-        - name: userId
-          in: path
-          description: ID of user
-          required: true
-          schema:
-            type: string
-      description: add the target user ID in the path parameter
-      responses:
-        "204":
-          description: add a user to the group
     delete:
       tags:
         - group
