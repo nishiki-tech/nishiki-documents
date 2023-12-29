@@ -21,6 +21,30 @@ const sidebars = {
       label: "Intro",
     }, {
       type: "category",
+      label: "Specifications",
+      items: [
+        {
+          type: "doc",
+          label: "Terms",
+          id: "specifications/terms"
+        }, {
+          type: "doc",
+          label: "Group And Container",
+          id: "specifications/group-and-container"
+        }, {
+          type: 'category',
+          label: "Detail",
+          items: [
+            {
+              type: "doc",
+              label: "Invitation Link",
+              id: "specifications/detail/invitation-to-group"
+            }
+          ]
+        }
+      ]
+    }, {
+      type: "category",
       label: "Domain Models",
       items: [
         {
