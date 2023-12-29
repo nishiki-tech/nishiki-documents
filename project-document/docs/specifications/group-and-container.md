@@ -17,7 +17,7 @@ Then the user create a container inside the group.
 
 Users must belong to the same group to share container (food) information between users.
 A sharing group is accomplished by a user who belongs to a group inviting other users.
-The detail of sharing method is described [here](/specifications/detail/invitaion-to-group).
+The detail of sharing method is described [here](/specifications/detail/invitation-to-group).
 
 ### When a group is deleted
 
