@@ -509,6 +509,32 @@ paths:
           description: Deletion complete
         "403":
           description: A user tries to delete a group that is not owned by a requesting user.
+  /groups/{groupId}/?Action=generateInvitaionLink:
+    put:
+      summary: Generate an invitation link
+      description: Generate an invitation link, return hash of invitation link
+      tags:
+        - group
+      parameters:
+        - name: Action
+          in: query
+          description: a place holder, must be 'generateInvitaionLink'
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: A generated invitation link hash
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  invitationLinkHash:
+                    type: string
+                    example: 3b6619cffb5f96e1acfa578badae372f
+        "403":
+          description: The user is not the owner of the group
   /groups/{groupId}/containers:
     get:
       description: get a list of the group's container
