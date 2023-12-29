@@ -445,6 +445,42 @@ paths:
                   groupId:
                     type: string
                     example: d4825cf5-0b1b-dce3-1aa1-ed9adfd6b0bd
+  /groups/?Action=joinToGroup:
+    put:
+      summary: Join to a group
+      description: Join to a group using the invitation link hash.
+      tags:
+        - group
+      parameters:
+        - name: Action
+          in: query
+          description: a place holder, must be 'joinToGroup'
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                invitationLinkHash:
+                  type: string
+                  example: 3b6619cffb5f96e1acfa578badae372f
+      responses:
+        "202":
+          description: The user is joined to the group. Returns the Group ID the user joined.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  groupId:
+                    type: string
+                    example: d4825cf5-0b1b-dce3-1aa1-ed9adfd6b0bd
+        "403":
+          description: The invitation link hash is invalid
   /groups/{groupId}:
     get:
       description: Get a group
