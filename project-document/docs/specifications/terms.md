@@ -12,7 +12,6 @@ A user in this system is required to register using the Google Account.
 
 The Container is a box of foods like a fridge.
 The container must belong to the Group.
-A user who doesn't belong any group **can** create a new container without group, but then the group is created for it automatically.
 
 ## Group
 
