@@ -63,6 +63,7 @@ classDiagram
         Quantity Quantity
         String Category
         Expiry Expiry
+        Date CreatedAt
     }
 
     class FoodId {
