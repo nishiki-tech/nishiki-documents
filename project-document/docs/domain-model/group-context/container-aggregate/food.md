@@ -31,3 +31,7 @@ The expiry is the expiration date. The expiry can be a past date.
 ### Category
 
 Each food entity must have only one category.
+
+### CreatedAt
+
+Each food entity must have the creation date. This **cannot** be modified.

@@ -33,7 +33,7 @@ Food {
     int quantity
     string category
     Datetime expiry
-    Datetime created_datetime
+    Datetime createdAt
 }
 
 ShareLink {
