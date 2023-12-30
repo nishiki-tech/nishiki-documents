@@ -421,24 +421,24 @@ paths:
                     items:
                       $ref: "#/components/schemas/Group"
                     example:
-                      - id: 82597aad-0d1b-4672-8b9a-fd3764cb9928
-                        name: Shared-house
-                      - id: 22222222-ee7b-4558-b8d5-371514e77bed
-                        name: Tom's Family
-                      - id: 33333333-ee7b-4558-b8d5-371514e77bed
-                        name: Nishiki
-                      - id: 44444444-ee7b-4558-b8d5-371514e77bed
-                        name: School Class A
-                      - id: 55555555-ee7b-4558-b8d5-371514e77bed
-                        name: Running Club 
-                      - id: 66666666-ee7b-4558-b8d5-371514e77bed
-                        name: Secret Group
-                      - id: 77777777-ee7b-4558-b8d5-371514e77bed
-                        name: Tom & Jelly
-                      - id: 88888888-ee7b-4558-b8d5-371514e77bed
-                        name: Wright Brothers
-                      - id: 99999999-ee7b-4558-b8d5-371514e77bed
-                        name: Gryffindor
+                      - groupId: 82597aad-0d1b-4672-8b9a-fd3764cb9928
+                        groupName: Shared-house
+                      - groupId: 22222222-0d1b-4672-8b9a-fd3764cb9928
+                        groupName: Tom's Family
+                      - groupId: 33333333-0d1b-4672-8b9a-fd3764cb9928
+                        groupName: Nishiki
+                      - groupId: 44444444-0d1b-4672-8b9a-fd3764cb9928
+                        groupName: School Class A
+                      - groupId: 55555555-0d1b-4672-8b9a-fd3764cb9928
+                        groupName: Running Club 
+                      - groupId: 66666666-0d1b-4672-8b9a-fd3764cb9928
+                        groupName: Secret Group
+                      - groupId: 77777777-0d1b-4672-8b9a-fd3764cb9928
+                        groupName: Tom & Jelly
+                      - groupId: 88888888-0d1b-4672-8b9a-fd3764cb9928
+                        groupName: Wright Brothers
+                      - groupId: 99999999-0d1b-4672-8b9a-fd3764cb9928
+                        groupName: Gryffindor
     post:
       description: create a new group
       tags:
