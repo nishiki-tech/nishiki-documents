@@ -464,6 +464,42 @@ paths:
                   groupId:
                     type: string
                     example: d4825cf5-0b1b-dce3-1aa1-ed9adfd6b0bd
+  /groups/?Action=joinToGroup:
+    put:
+      summary: Join to a group
+      description: Join to a group using the invitation link hash.
+      tags:
+        - group
+      parameters:
+        - name: Action
+          in: query
+          description: a place holder, must be 'joinToGroup'
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                invitationLinkHash:
+                  type: string
+                  example: 3b6619cffb5f96e1acfa578badae372f
+      responses:
+        "202":
+          description: The user is joined to the group. Returns the Group ID the user joined.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  groupId:
+                    type: string
+                    example: d4825cf5-0b1b-dce3-1aa1-ed9adfd6b0bd
+        "403":
+          description: The invitation link hash is invalid
   /groups/{groupId}:
     get:
       description: Get a group
@@ -528,6 +564,32 @@ paths:
           description: Deletion complete
         "403":
           description: A user tries to delete a group that is not owned by a requesting user.
+  /groups/{groupId}/?Action=generateInvitaionLink:
+    put:
+      summary: Generate an invitation link
+      description: Generate an invitation link, return hash of invitation link
+      tags:
+        - group
+      parameters:
+        - name: Action
+          in: query
+          description: a place holder, must be 'generateInvitaionLink'
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: A generated invitation link hash
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  invitationLinkHash:
+                    type: string
+                    example: 3b6619cffb5f96e1acfa578badae372f
+        "403":
+          description: The user is not the owner of the group
   /groups/{groupId}/containers:
     get:
       description: get a list of the group's container
@@ -585,26 +647,6 @@ paths:
                       - id: 44444444-ee7b-4558-b8d5-371514e77bed
                         name: Sophia Thompson
   /groups/{groupId}/users/{userId}:
-    put:
-      tags:
-        - group
-      parameters:
-        - name: groupId
-          in: path
-          description: ID of group
-          required: true
-          schema:
-            type: string
-        - name: userId
-          in: path
-          description: ID of user
-          required: true
-          schema:
-            type: string
-      description: add the target user ID in the path parameter
-      responses:
-        "204":
-          description: add a user to the group
     delete:
       tags:
         - group
