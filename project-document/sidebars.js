@@ -32,6 +32,10 @@ const sidebars = {
           label: "Group And Container",
           id: "specifications/group-and-container"
         }, {
+          type: "doc",
+          label: "Others",
+          id: "specifications/others"
+        }, {
           type: 'category',
           label: "Detail",
           items: [

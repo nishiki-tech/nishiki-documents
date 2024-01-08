@@ -314,6 +314,7 @@ paths:
                 expiry:
                   type: string
                   format: date-time
+                  description: DateTime must follow ISO 8601 format including time zone.
                   nullable: true
                   example: 1970-01-01T00:00:00.000Z
       responses:
@@ -377,6 +378,7 @@ paths:
                 expiry:
                   type: string
                   format: date-time
+                  description: DateTime must follow ISO 8601 format including time zone.
                   nullable: true
                   example: 1970-01-01T00:00:00.000Z
       responses:
