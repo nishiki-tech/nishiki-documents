@@ -154,7 +154,7 @@ Food is the object.
     Name: String,
     Unit: String | null,
     Quantity: Number | null,
-    Category: String | null,
+    Category: String,
     Expiry: String (Datetime) | null,
     CreatedAt: String (Datetime)
 }
