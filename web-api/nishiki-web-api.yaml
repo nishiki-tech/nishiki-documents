@@ -665,7 +665,7 @@ paths:
           required: true
           schema:
             type: string
-      description: add the target user ID in the path parameter
+      description: Delete a user from their specific group
       responses:
         "204":
           description: deletion complete
