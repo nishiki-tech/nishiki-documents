@@ -490,7 +490,7 @@ paths:
                   type: string
                   example: 3b6619cffb5f96e1acfa578badae372f
       responses:
-        "202":
+        "200":
           description: The user is joined to the group. Returns the Group ID the user joined.
           content:
             application/json:
