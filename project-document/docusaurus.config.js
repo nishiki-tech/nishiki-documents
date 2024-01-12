@@ -90,7 +90,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Nishiki Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Nishiki Project. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
