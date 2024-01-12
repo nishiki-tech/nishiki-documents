@@ -66,8 +66,8 @@ const config = {
       navbar: {
         title: 'Nishiki',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Nishiki Logo',
+          src: 'img/nishiki-logo.png',
         },
         items: [
           {
@@ -90,7 +90,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Nishiki Project Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
