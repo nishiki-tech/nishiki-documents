@@ -466,7 +466,7 @@ paths:
                   groupId:
                     type: string
                     example: d4825cf5-0b1b-dce3-1aa1-ed9adfd6b0bd
-  /groups/?Action=joinToGroup:
+  /groups?Action=joinToGroup:
     put:
       summary: Join to a group
       description: Join to a group using the invitation link hash.
@@ -566,7 +566,7 @@ paths:
           description: Deletion complete
         "403":
           description: A user tries to delete a group that is not owned by a requesting user.
-  /groups/{groupId}/?Action=generateInvitaionLink:
+  /groups/{groupId}?Action=generateInvitaionLink:
     put:
       summary: Generate an invitation link
       description: Generate an invitation link, return hash of invitation link
