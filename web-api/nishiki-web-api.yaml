@@ -404,6 +404,8 @@ paths:
       responses:
         "204":
           description: deletion complete
+        "403":
+          description: A user tries to delete food belonging to a container that is not owned by a requesting user.
   /groups:
     get:
       summary: Get a list of groups linked to a user
