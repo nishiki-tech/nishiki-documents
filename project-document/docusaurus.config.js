@@ -18,7 +18,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'genesis-tech-tribe', // Usually your GitHub org/user name.
+  organizationName: 'nishiki-tech', // Usually your GitHub org/user name.
   projectName: 'nishiki-documents', // Usually your repo name.
   deploymentBranch: 'gh-pages', // The branch of your docs repo that you are publishing to GitHub pages.
   trailingSlash : false,
@@ -71,7 +71,7 @@ const config = {
         },
         items: [
           {
-            href: 'https://github.com/genesis-tech-tribe',
+            href: 'https://github.com/nishiki-tech',
             label: 'GitHub',
             position: 'right',
           },
@@ -85,7 +85,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/genesis-tech-tribe',
+                href: 'https://github.com/nishiki-tech',
               },
             ],
           },
