@@ -1,7 +1,7 @@
 # Nishiki Documents
 
 This is Nishiki's documents repository.
-Nishiki consists of [FrontEnd](https://github.com/genesis-tech-tribe/nishiki-frontend) and [BackEnd](https://github.com/genesis-tech-tribe/nishiki-backend), 
+Nishiki consists of [FrontEnd](https://github.com/nishiki-tech/nishiki-frontend) and [BackEnd](https://github.com/nishiki-tech/nishiki-backend), 
 and the details of implementation or documents are managed in those repositories.
 
 This repository manages the common information of Nishiki.
@@ -21,5 +21,5 @@ If you have an interest to contribute this project, see the [CONTRIBUTING.md](./
 
 ## Deployed Documents
 
-[Project Document](https://genesis-tech-tribe.github.io/nishiki-documents/project-document/index.html)  
-[Web API Document](https://genesis-tech-tribe.github.io/nishiki-documents/web-api/index.html)
+[Project Document](https://nishiki-tech.github.io/nishiki-documents/project-document/index.html)  
+[Web API Document](https://nishiki-tech.github.io/nishiki-documents/web-api/index.html)
