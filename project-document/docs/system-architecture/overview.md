@@ -5,7 +5,7 @@ This system is hosted on the AWS.
 ![aws-architecture](/img/aws/structure.drawio.svg)
 
 We have deployed these services using [AWS CDK](https://docs.aws.amazon.com/cdk/v2/guide/home.html), allowing us to manage the infrastructure by code.
-The code is hosted on [the cdk directory within the backend repository.](https://github.com/genesis-tech-tribe/nishiki-backend/tree/develop/cdk)
+The code is hosted on [the cdk directory within the backend repository.](https://github.com/nishiki-tech/nishiki-backend/tree/develop/cdk)
 
 ## Using Services
 
