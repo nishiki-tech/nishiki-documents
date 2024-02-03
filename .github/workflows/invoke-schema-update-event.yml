@@ -24,8 +24,8 @@ jobs:
 
       - name: send dispatch to nishiki-backend
         run: |
-            curl -X POST -H "Authorization: token ${{ steps.generate_token.outputs.token }}" -H "Accept: application/vnd.github.everest-preview+json" -d '{"event_type": "update-schema"}' -i  https://api.github.com/repos/genesis-tech-tribe/nishiki-backend/dispatches
+            curl -X POST -H "Authorization: token ${{ steps.generate_token.outputs.token }}" -H "Accept: application/vnd.github.everest-preview+json" -d '{"event_type": "update-schema"}' -i  https://api.github.com/repos/nishiki-tech/nishiki-backend/dispatches
 
       - name: send dispatch to nishiki-frontend
         run: |
-            curl -X POST -H "Authorization: token ${{ steps.generate_token.outputs.token }}" -H "Accept: application/vnd.github.everest-preview+json" -d '{"event_type": "update-schema"}' -i  https://api.github.com/repos/genesis-tech-tribe/nishiki-frontend/dispatches
+            curl -X POST -H "Authorization: token ${{ steps.generate_token.outputs.token }}" -H "Accept: application/vnd.github.everest-preview+json" -d '{"event_type": "update-schema"}' -i  https://api.github.com/repos/nishiki-tech/nishiki-frontend/dispatches

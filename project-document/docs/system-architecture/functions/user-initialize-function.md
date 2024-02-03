@@ -17,7 +17,7 @@ Consequently, this system must create a new group and a new container for each n
 [This function hooks Cognito's sign-up event](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html), which provides the user's email address.
 Leveraging this information, the function initiate the following process using the API of [main function's API](/system-architecture/functions/main-function).
 
-1. [Register the user in Nishiki.](https://genesis-tech-tribe.github.io/nishiki-documents/web-api/index.html#tag/user/paths/~1users/post)
-2. [Create a new Group.](https://genesis-tech-tribe.github.io/nishiki-documents/web-api/index.html#tag/user/paths/~1users/post)
-3. [Create a new Container.](https://genesis-tech-tribe.github.io/nishiki-documents/web-api/index.html#tag/container/paths/~1containers/post)
-4. [Let the new user belong to the new Group which is created in 2. process.](https://genesis-tech-tribe.github.io/nishiki-documents/web-api/index.html#tag/group/paths/~1groups~1%7BgroupId%7D~1users~1%7BuserId%7D/put)
+1. [Register the user in Nishiki.](https://nishiki-tech.github.io/nishiki-documents/web-api/index.html#tag/user/paths/~1users/post)
+2. [Create a new Group.](https://nishiki-tech.github.io/nishiki-documents/web-api/index.html#tag/user/paths/~1users/post)
+3. [Create a new Container.](https://nishiki-tech.github.io/nishiki-documents/web-api/index.html#tag/container/paths/~1containers/post)
+4. [Let the new user belong to the new Group which is created in 2. process.](https://nishiki-tech.github.io/nishiki-documents/web-api/index.html#tag/group/paths/~1groups~1%7BgroupId%7D~1users~1%7BuserId%7D/put)
