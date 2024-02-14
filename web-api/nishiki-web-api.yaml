@@ -309,6 +309,7 @@ paths:
                   nullable: false
                 quantity:
                   type: integer
+                  format: float
                   nullable: true
                   example: 1
                 expiry:
@@ -373,6 +374,7 @@ paths:
                   nullable: false                
                 quantity:
                   type: integer
+                  format: float
                   nullable: true
                   example: 1
                 expiry:
@@ -741,7 +743,7 @@ components:
           nullable: false
         quantity:
           type: integer
-          format: int64
+          format: float
           nullable: true
           example: 1
         category:
