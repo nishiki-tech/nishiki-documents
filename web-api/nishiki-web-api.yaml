@@ -569,7 +569,7 @@ paths:
           description: Deletion complete
         "403":
           description: A user tries to delete a group that is not owned by a requesting user.
-  /groups/{groupId}/?Action=generateInvitaionLink:
+  /groups/{groupId}?Action=generateInvitationLink:
     put:
       summary: Generate an invitation link
       description: Generate an invitation link, return hash of invitation link
@@ -578,7 +578,7 @@ paths:
       parameters:
         - name: Action
           in: query
-          description: a place holder, must be 'generateInvitaionLink'
+          description: a place holder, must be 'generateInvitationLink'
           required: true
           schema:
             type: string
