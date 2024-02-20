@@ -545,7 +545,7 @@ paths:
               properties:
                 groupName:
                   type: string
-                  nullable: true
+                  nullable: false
                   example: new-group
       responses:
         "204":
