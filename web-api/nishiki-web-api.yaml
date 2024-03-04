@@ -193,7 +193,7 @@ paths:
                   example: groupId
                 name:
                   type: string
-                  nullable: true
+                  nullable: false
                   example: my-container
       responses:
         "201":
