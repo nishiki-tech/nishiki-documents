@@ -112,8 +112,8 @@ paths:
                       - id: 11111111-ee7b-4558-b8d5-371514e77bed
                         name: Shared-house's Fridge
                         group:
-                            groupId: a3kdifut-a520-c2cb-1be7-d90710691861
-                            groupName: Shared-house
+                          groupId: a3kdifut-a520-c2cb-1be7-d90710691861
+                          groupName: Shared-house
                         foods:
                           - id: 11111111-58b7-4c3d-9548-fc0a4d3b3ef4
                             name: arugula
@@ -128,12 +128,12 @@ paths:
                             category: vegetables
                             unit:
                             expiry: 2023-12-25T00:00:00.000Z
-                            createdAt: 2023-12-04T00:00:00.000Z                          
+                            createdAt: 2023-12-04T00:00:00.000Z
                       - id: 22222222-ee7b-4558-b8d5-371514e77bed
                         name: Family's Fridge
                         group:
-                            groupId: c3a8df3e-a520-c2cb-1be7-d90710691861
-                            groupName: Tom's family
+                          groupId: c3a8df3e-a520-c2cb-1be7-d90710691861
+                          groupName: Tom's family
                         foods:
                           - id: 33333333-58b7-4c3d-9548-fc0a4d3b3ef4
                             name: onion
@@ -148,12 +148,12 @@ paths:
                             category: meat
                             unit: kg
                             expiry: 2023-12-15T00:00:00.000Z
-                            createdAt: 2023-12-01T00:00:00.000Z   
+                            createdAt: 2023-12-01T00:00:00.000Z
                       - id: 33333333-ee7b-4558-b8d5-371514e77bed
                         name: Camping Fridge
                         group:
-                            groupId: c3a8df3e-a520-c2cb-1be7-d90710691861
-                            groupName: Tom's family
+                          groupId: c3a8df3e-a520-c2cb-1be7-d90710691861
+                          groupName: Tom's family
                         foods:
                           - id: 55555555-58b7-4c3d-9548-fc0a4d3b3ef4
                             name: Beef steak
@@ -168,14 +168,14 @@ paths:
                             category: beverage
                             unit: can
                             expiry: 2024-03-15T00:00:00.000Z
-                            createdAt: 2023-12-01T00:00:00.000Z   
+                            createdAt: 2023-12-01T00:00:00.000Z
                           - id: 77777777-58b7-4c3d-9548-fc0a4d3b3ef4
-                            name: Red Wine 
+                            name: Red Wine
                             quantity: 3
                             category: beverage
                             unit: bottle
                             expiry: 2024-06-15T00:00:00.000Z
-                            createdAt: 2023-12-03T00:00:00.000Z   
+                            createdAt: 2023-12-03T00:00:00.000Z
     post:
       description: create a new container
       tags:
@@ -247,7 +247,7 @@ paths:
               properties:
                 containerName:
                   type: string
-                  nullable: true
+                  nullable: false
                   example: new-container
       responses:
         "204":
@@ -371,7 +371,7 @@ paths:
                 category:
                   type: string
                   example: Vegetables
-                  nullable: false                
+                  nullable: false
                 quantity:
                   type: integer
                   format: float
@@ -436,7 +436,7 @@ paths:
                       - groupId: 44444444-0d1b-4672-8b9a-fd3764cb9928
                         groupName: School Class A
                       - groupId: 55555555-0d1b-4672-8b9a-fd3764cb9928
-                        groupName: Running Club 
+                        groupName: Running Club
                       - groupId: 66666666-0d1b-4672-8b9a-fd3764cb9928
                         groupName: Secret Group
                       - groupId: 77777777-0d1b-4672-8b9a-fd3764cb9928
@@ -648,7 +648,7 @@ paths:
                       - id: 22222222-ee7b-4558-b8d5-371514e77bed
                         name: Emma Brown
                       - id: 33333333-ee7b-4558-b8d5-371514e77bed
-                        name: Michael Johnson              
+                        name: Michael Johnson
                       - id: 44444444-ee7b-4558-b8d5-371514e77bed
                         name: Sophia Thompson
   /groups/{groupId}/users/{userId}:
@@ -708,15 +708,15 @@ components:
         group:
           type: object
           items:
-            $ref: "#/components/schemas/Group"  
+            $ref: "#/components/schemas/Group"
           example:
             groupId: a3kdifut-a520-c2cb-1be7-d90710691861
             groupName: Shared-house
         foods:
           type: array
           nullable: false
-          items:     
-            $ref: "#/components/schemas/Food"  
+          items:
+            $ref: "#/components/schemas/Food"
     Group:
       type: object
       properties:
