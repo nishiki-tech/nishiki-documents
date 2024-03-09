@@ -90,6 +90,23 @@ paths:
           description: update user's information
         "401":
           description: try to change other user's information
+    delete:
+      summary: Delete a user.
+      description: The groups and containers will be deleted as well if those are possessed by only this user..
+      tags:
+        - user
+      parameters:
+        - name: userId
+          in: path
+          description: ID of user
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: deleting user is succeed
+        "401":
+          description: try to change other user's information
   /containers:
     get:
       summary: Get a list of the user's container
