@@ -120,6 +120,11 @@ const sidebars = {
               type: "doc",
               label: "User Initialize Function",
               id: "system-architecture/functions/user-initialize-function"
+            },
+            {
+              type: "doc",
+              label: "Notification Service",
+              id: "system-architecture/functions/notification-service"
             }
           ]
         }
